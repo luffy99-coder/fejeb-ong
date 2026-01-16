@@ -173,7 +173,18 @@ footer{
 /* RESPONSIVE MOBILE – CORRIGÉ SANS CASSER */
 @media(max-width:900px){
   nav{
-    display:none;
+    position:fixed;
+        top:70px;
+        left:0;
+        width:100%;
+        min-height: calc(100vh - 180px);
+        padding-bottom: 20px;
+        background:white;
+        flex-direction:column;
+        display:none;
+        align-items: center;
+        text-align: center;
+        box-shadow:0 10px 30px rgba(0,0,0,.1);
   }
   nav.active{
     display:flex;
@@ -321,3 +332,4 @@ function toggleMenu(){
 
 </body>
 </html>
+
