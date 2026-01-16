@@ -27,6 +27,26 @@
 <meta property="og:url" content="https://fejeb-ong.org/actualites.html">
 <meta property="og:site_name" content="FEJEB ONG">
 
+<!-- SCHEMA.ORG SEO (NON VISUEL – NE CASSE RIEN) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NGO",
+  "name": "FEJEB ONG",
+  "url": "https://fejeb-ong.org",
+  "logo": "https://fejeb-ong.org/logo.png",
+  "sameAs": [
+    "https://www.facebook.com/fejebong",
+    "https://www.linkedin.com/company/fejeb-ong"
+  ],
+  "areaServed": {
+    "@type": "Country",
+    "name": "Bénin"
+  },
+  "description": "FEJEB ONG agit pour le développement communautaire, la jeunesse, les femmes et les enfants à travers des actions concrètes et durables."
+}
+</script>
+
 <style>
 :root{
   --green:#008751;
@@ -39,6 +59,7 @@ body{
   background:linear-gradient(135deg,#003b8f,#0057ff,#00a3ff);
   color:#222;
   line-height:1.7;
+  overflow-x:hidden;
 }
 
 /* HEADER */
@@ -78,16 +99,21 @@ nav a:hover::after{width:100%}
   height:70vh;
   background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
   url("fond.jpg") center/cover no-repeat;
-  display:flex;align-items:center;justify-content:center;
-  text-align:center;color:#fff;padding:20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#fff;
+  padding:20px;
 }
 .hero h1{font-size:48px;margin-bottom:20px}
 .hero p{font-size:20px;max-width:800px;margin:auto}
 
 /* MAIN */
 main{
-  max-width:1200px;margin:auto;
-  padding:120px 20px 80px;
+  max-width:1200px;
+  margin:auto;
+  padding:140px 20px 80px;
 }
 .news-grid{
   display:grid;
@@ -144,18 +170,32 @@ footer{
   padding:50px 20px;
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE MOBILE – CORRIGÉ SANS CASSER */
 @media(max-width:900px){
-  nav{display:none}
+  nav{
+    display:none;
+  }
   nav.active{
     display:flex;
     flex-direction:column;
     background:#fff;
     position:absolute;
-    top:70px;left:0;width:100%;
+    top:70px;
+    left:0;
+    width:100%;
+    padding:20px 0;
+  }
+  nav a{
+    padding:12px 0;
+    font-size:18px;
   }
   .menu-toggle{display:block}
-  .hero h1{font-size:34px}
+  .hero{
+    height:auto;
+    padding:120px 20px 60px;
+  }
+  .hero h1{font-size:32px}
+  .hero p{font-size:17px}
 }
 </style>
 </head>
@@ -208,18 +248,14 @@ fetch(SHEET_URL)
 .then(r=>r.text())
 .then(csv=>{
   rows = parseCSV(csv).slice(1);
-
-  /* TRI PAR DATE (JJ/MM/AAAA) — NOUVEAU EN HAUT */
   rows.sort((a, b) => {
     const da = a[0].split("/").reverse().join("-");
     const db = b[0].split("/").reverse().join("-");
     return new Date(db) - new Date(da);
   });
-
   render();
 });
 
-/* PARSE CSV (gère les virgules dans les textes) */
 function parseCSV(text){
   const rows=[];
   let row=[],cur="",q=false;
@@ -285,6 +321,3 @@ function toggleMenu(){
 
 </body>
 </html>
-
-
-
