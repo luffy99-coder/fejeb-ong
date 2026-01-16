@@ -204,18 +204,22 @@ const PER_PAGE=6;
 let currentPage=1;
 let rows=[];
 
-fetch(SHEET_URL + '&t=' + Date.now())
+fetch(SHEET_URL)
 .then(r=>r.text())
 .then(csv=>{
   rows = parseCSV(csv).slice(1);
 
+  /* TRI PAR DATE (JJ/MM/AAAA) — NOUVEAU EN HAUT */
   rows.sort((a, b) => {
-    return new Date(b[0]) - new Date(a[0]);
+    const da = a[0].split("/").reverse().join("-");
+    const db = b[0].split("/").reverse().join("-");
+    return new Date(db) - new Date(da);
   });
 
   render();
 });
 
+/* PARSE CSV (gère les virgules dans les textes) */
 function parseCSV(text){
   const rows=[];
   let row=[],cur="",q=false;
@@ -233,6 +237,7 @@ function render(){
   const grid=document.getElementById("newsGrid");
   grid.innerHTML="";
   const start=(currentPage-1)*PER_PAGE;
+
   rows.slice(start,start+PER_PAGE).forEach(c=>{
     grid.innerHTML+=`
     <article class="news-card">
@@ -255,6 +260,7 @@ function render(){
       b.textContent=o?"Lire plus":"Lire moins";
     }
   });
+
   renderPagination();
 }
 
@@ -266,11 +272,19 @@ function renderPagination(){
     p.innerHTML+=`<button onclick="goPage(${i})">${i}</button>`;
   }
 }
-function goPage(p){currentPage=p;render();}
-function toggleMenu(){document.getElementById("menu").classList.toggle("active");}
+
+function goPage(p){
+  currentPage=p;
+  render();
+}
+
+function toggleMenu(){
+  document.getElementById("menu").classList.toggle("active");
+}
 </script>
 
 </body>
 </html>
+
 
 
