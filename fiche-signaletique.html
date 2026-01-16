@@ -207,12 +207,53 @@ footer{
   padding:50px 20px;
 }
 
-/* RESPONSIVE */
-@media(max-width:900px){
-  nav{display:none}
-  .hero h1{font-size:34px}
-  .section-card{padding:30px}
-}
+/* RESPONSIVE MOBILE */
+    @media(max-width:900px){
+      nav{
+        position:fixed;
+        top:70px;
+        left:0;
+        width:100%;
+        min-height: calc(100vh - 180px);
+        padding-bottom: 20px;
+        background:white;
+        flex-direction:column;
+        display:none;
+        align-items: center;
+        text-align: center;
+        box-shadow:0 10px 30px rgba(0,0,0,.1);
+      }
+
+      nav.active{
+        display:flex;
+      }
+
+      nav a{
+        margin:15px 0;
+        font-size:18px;
+      }
+
+      .menu-toggle{
+        display:block;
+      }
+
+      .hero h1{
+        font-size:34px;
+      }
+
+      .hero p{
+        font-size:18px;
+      }
+
+      .btn{
+        width:100%;
+        max-width:320px;
+      }
+
+      .section-card{
+        padding:40px 25px;
+      }
+    }
 </style>
 </head>
 
@@ -280,3 +321,4 @@ footer{
 
 </body>
 </html>
+
