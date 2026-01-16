@@ -204,7 +204,7 @@ const PER_PAGE=6;
 let currentPage=1;
 let rows=[];
 
-fetch(SHEET_URL)
+fetch(SHEET_URL + '&t=' + Date.now())
 .then(r=>r.text())
 .then(csv=>{
   rows = parseCSV(csv).slice(1);
@@ -270,7 +270,7 @@ function goPage(p){currentPage=p;render();}
 function toggleMenu(){document.getElementById("menu").classList.toggle("active");}
 </script>
 
-
 </body>
 </html>
+
 
