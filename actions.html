@@ -1,17 +1,52 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Actions & Programmes | FEJEB ONG</title>
 
-  <meta name="description" content="Découvrez les actions et programmes de FEJEB ONG en faveur des femmes, des enfants et des jeunes au Bénin.">
-  <meta name="keywords" content="FEJEB ONG, Actions ONG, Programmes jeunesse, Autonomisation femmes, Protection enfants Bénin">
-  <meta name="author" content="FEJEB ONG">
+  <!-- BASE -->
+  <meta charset="UTF-8">
+  <title>Actions & Programmes | FEJEB ONG – Femmes, Enfants et Jeunes Épanouis du Bénin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Favicon -->
+  <!-- SEO CLASSIQUE -->
+  <meta name="description" content="Découvrez les actions et programmes de FEJEB ONG au Bénin : autonomisation des femmes, protection de l’enfance, insertion socio-professionnelle des jeunes et développement communautaire durable.">
+  <meta name="keywords" content="FEJEB ONG, actions ONG Bénin, programmes jeunesse, autonomisation des femmes, protection des enfants, insertion des jeunes, ONG Afrique, développement communautaire">
+  <meta name="author" content="FEJEB ONG">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="fr">
+  <link rel="canonical" href="https://www.fejeb.org/actions.html">
+
+  <!-- OPEN GRAPH -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Actions & Programmes | FEJEB ONG">
+  <meta property="og:description" content="Actions concrètes et programmes structurants de FEJEB ONG pour les femmes, les enfants et les jeunes au Bénin.">
+  <meta property="og:url" content="https://www.fejeb.org/actions.html">
+  <meta property="og:image" content="https://www.fejeb.org/og-actions.jpg">
+  <meta property="og:site_name" content="FEJEB ONG">
+
+  <!-- TWITTER CARD -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Actions & Programmes | FEJEB ONG">
+  <meta name="twitter:description" content="Programmes de développement, autonomisation et inclusion portés par FEJEB ONG au Bénin.">
+  <meta name="twitter:image" content="https://www.fejeb.org/og-actions.jpg">
+
+  <!-- FAVICON -->
   <link rel="icon" type="image/png" href="favicon.png">
 
+  <!-- SCHEMA.ORG ONG -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NGO",
+    "name": "FEJEB ONG",
+    "url": "https://www.fejeb.org",
+    "logo": "https://www.fejeb.org/logo.png",
+    "description": "Organisation œuvrant pour l’autonomisation des femmes, la protection des enfants et l’épanouissement des jeunes au Bénin.",
+    "areaServed": "BJ",
+    "sameAs": []
+  }
+  </script>
+
+  <!-- STYLES -->
   <style>
     :root{
       --green:#008751;
@@ -20,68 +55,74 @@
       --dark:#0e1b16;
     }
 
-    *{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",Arial,sans-serif}
-    body{background:linear-gradient(
-    135deg,
-    #003b8f,
-    #0057ff,
-    #00a3ff
-  );}
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:"Segoe UI",Arial,sans-serif
+    }
 
-    /* ===== HEADER ===== */
+    body{
+      background:linear-gradient(135deg,#003b8f,#0057ff,#00a3ff);
+    }
+
+    /* HEADER */
     header{
-      position:fixed;top:0;width:100%;
+      position:fixed;
+      top:0;
+      width:100%;
       background:rgba(255,255,255,0.95);
       box-shadow:0 2px 10px rgba(0,0,0,0.05);
       z-index:1000;
     }
 
     .nav{
-      max-width:1200px;margin:auto;
-      display:flex;justify-content:space-between;align-items:center;
+      max-width:1200px;
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
       padding:15px 20px;
     }
 
-    .logo{display:flex;align-items:center;gap:10px}
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:10px
+    }
+
     .logo img{height:45px}
     .logo span{font-weight:700;color:var(--green);font-size:18px}
 
-    nav{display:flex;
-      align-items:center
+    nav{
+      display:flex;
+      align-items:center;
       font-weight:600;
       font-size:17px;
     }
-    nav a{margin:0 12px;text-decoration:none;color:#333;font-weight:500}
-    nav a:hover{color:var(--green)}
 
     nav a{
-  position:relative;
-  margin:0 12px;
-  text-decoration:none;
-  color:#333;
-  font-weight:500;
-  padding-bottom:4px;
-}
+      position:relative;
+      margin:0 12px;
+      text-decoration:none;
+      color:#333;
+      font-weight:500;
+      padding-bottom:4px;
+    }
 
-nav a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:0;
-  width:0%;
-  height:2px;
-  background:var(--green);
-  transition:width .3s ease;
-}
+    nav a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:0;
+      width:0%;
+      height:2px;
+      background:var(--green);
+      transition:width .3s ease;
+    }
 
-nav a:hover::after{
-  width:100%;
-}
-
-nav a:hover{
-  color:var(--green);
-}
-
+    nav a:hover::after{width:100%}
+    nav a:hover{color:var(--green)}
 
     .menu-toggle{
       display:none;
@@ -89,7 +130,7 @@ nav a:hover{
       cursor:pointer;
     }
 
-    /* ===== HERO ===== */
+    /* HERO */
     .hero{
       height:70vh;
       display:flex;
@@ -101,10 +142,20 @@ nav a:hover{
       padding:20px;
     }
 
-    .hero h1{font-size:46px;max-width:900px;margin:auto}
-    .hero p{margin-top:20px;font-size:20px;max-width:800px;margin:auto}
+    .hero h1{
+      font-size:46px;
+      max-width:900px;
+      margin:auto
+    }
 
-    /* ===== MAIN ===== */
+    .hero p{
+      margin-top:20px;
+      font-size:20px;
+      max-width:800px;
+      margin:auto
+    }
+
+    /* MAIN */
     main{
       max-width:1200px;
       margin:auto;
@@ -153,9 +204,7 @@ nav a:hover{
       font-size:22px;
     }
 
-    .program ul{
-      margin-left:20px;
-    }
+    .program ul{margin-left:20px}
 
     .impact{
       background:linear-gradient(135deg,var(--green),var(--yellow));
@@ -180,7 +229,6 @@ nav a:hover{
       font-size:18px;
     }
 
-    /* ===== FOOTER ===== */
     footer{
       background:var(--dark);
       color:white;
@@ -190,7 +238,7 @@ nav a:hover{
 
     footer p{opacity:.85}
 
-    /* ===== MOBILE ===== */
+    /* MOBILE */
     @media(max-width:900px){
       nav{
         position:absolute;
@@ -209,7 +257,6 @@ nav a:hover{
       }
 
       nav.show{display:flex}
-
       .menu-toggle{display:block}
       .hero h1{font-size:34px}
     }
@@ -249,18 +296,16 @@ nav a:hover{
 
 <main>
 
+  <!-- TOUT TON CONTENU CONSERVÉ À L’IDENTIQUE -->
+
   <!-- AXES -->
   <section class="section-card">
     <h2>🎯 Nos axes d’intervention prioritaires</h2>
-
     <div class="program-grid">
 
       <div class="program">
         <h3>👩‍🦱 Autonomisation des femmes</h3>
-        <p>
-          FEJEB agit pour renforcer l’indépendance économique et sociale des femmes,
-          en particulier celles issues de milieux vulnérables.
-        </p>
+        <p>FEJEB agit pour renforcer l’indépendance économique et sociale des femmes, en particulier celles issues de milieux vulnérables.</p>
         <ul>
           <li>Formations génératrices de revenus</li>
           <li>Entrepreneuriat féminin</li>
@@ -271,10 +316,7 @@ nav a:hover{
 
       <div class="program">
         <h3>👶 Protection et épanouissement de l’enfance</h3>
-        <p>
-          L’enfant est au cœur de notre action. FEJEB œuvre pour garantir un environnement
-          sûr, éducatif et protecteur.
-        </p>
+        <p>L’enfant est au cœur de notre action. FEJEB œuvre pour garantir un environnement sûr, éducatif et protecteur.</p>
         <ul>
           <li>Lutte contre le décrochage scolaire</li>
           <li>Sensibilisation aux droits de l’enfant</li>
@@ -285,10 +327,7 @@ nav a:hover{
 
       <div class="program">
         <h3>🧑‍🎓 Insertion socio-professionnelle des jeunes</h3>
-        <p>
-          Nous accompagnons les jeunes vers une insertion durable à travers des compétences
-          pratiques et une conscience citoyenne forte.
-        </p>
+        <p>Nous accompagnons les jeunes vers une insertion durable à travers des compétences pratiques et une conscience citoyenne forte.</p>
         <ul>
           <li>Formations professionnelles</li>
           <li>Mentorat et orientation</li>
@@ -303,11 +342,7 @@ nav a:hover{
   <!-- PROGRAMMES -->
   <section class="section-card">
     <h2>📌 Nos programmes structurants</h2>
-    <p>
-      Les programmes de FEJEB sont conçus à partir des réalités locales,
-      avec une approche inclusive et participative.
-    </p>
-
+    <p>Les programmes de FEJEB sont conçus à partir des réalités locales, avec une approche inclusive et participative.</p>
     <ul>
       <li>Programme Jeunes Leaders et Citoyenneté Active</li>
       <li>Programme Femmes & Autonomie Économique</li>
@@ -320,11 +355,7 @@ nav a:hover{
   <!-- APPROCHE -->
   <section class="section-card">
     <h2>🛠️ Notre méthodologie d’intervention</h2>
-    <p>
-      FEJEB adopte une méthodologie rigoureuse basée sur l’écoute,
-      la co-construction avec les communautés et l’évaluation continue.
-    </p>
-
+    <p>FEJEB adopte une méthodologie rigoureuse basée sur l’écoute, la co-construction avec les communautés et l’évaluation continue.</p>
     <ul>
       <li>Analyse participative des besoins</li>
       <li>Implication des leaders communautaires</li>
@@ -336,11 +367,7 @@ nav a:hover{
   <!-- BENEFICIAIRES -->
   <section class="section-card">
     <h2>👥 Nos bénéficiaires</h2>
-    <p>
-      Nos actions s’adressent principalement aux groupes les plus vulnérables,
-      avec une attention particulière à l’équité et à l’inclusion.
-    </p>
-
+    <p>Nos actions s’adressent principalement aux groupes les plus vulnérables, avec une attention particulière à l’équité et à l’inclusion.</p>
     <ul>
       <li>Femmes en situation de vulnérabilité</li>
       <li>Enfants à risque ou déscolarisés</li>
@@ -352,12 +379,7 @@ nav a:hover{
   <!-- PARTENARIATS -->
   <section class="section-card">
     <h2>🤝 Partenariats et collaborations</h2>
-    <p>
-      FEJEB travaille en collaboration avec des institutions publiques,
-      des organisations nationales et internationales, ainsi que des acteurs locaux,
-      afin de maximiser l’impact de ses actions.
-    </p>
-
+    <p>FEJEB travaille en collaboration avec des institutions publiques, des organisations nationales et internationales, ainsi que des acteurs locaux, afin de maximiser l’impact de ses actions.</p>
     <ul>
       <li>Collectivités locales</li>
       <li>ONG et associations partenaires</li>
@@ -369,7 +391,6 @@ nav a:hover{
   <!-- IMPACT -->
   <section class="impact">
     <h2>📊 Impact attendu</h2>
-
     <div class="impact-grid">
       <div class="impact-box">✔️ Jeunes formés et responsabilisés</div>
       <div class="impact-box">✔️ Femmes autonomisées durablement</div>
@@ -381,15 +402,10 @@ nav a:hover{
   <!-- CTA -->
   <section class="section-card">
     <h2>🚀 Agir avec FEJEB</h2>
-    <p>
-      Chaque action compte. En soutenant FEJEB, vous contribuez directement
-      à transformer des vies et à bâtir un avenir meilleur pour les femmes,
-      les enfants et les jeunes du Bénin.
-    </p>
+    <p>Chaque action compte. En soutenant FEJEB, vous contribuez directement à transformer des vies et à bâtir un avenir meilleur pour les femmes, les enfants et les jeunes du Bénin.</p>
   </section>
 
 </main>
-
 
 <footer>
   <p>© 2026 FEJEB ONG — Tous droits réservés</p>
