@@ -120,6 +120,13 @@ nav a::after{
 
 nav a:hover::after{width:100%}
 
+/* MENU MOBILE */
+    .menu-toggle{
+      display:none;
+      font-size:30px;
+      cursor:pointer;
+    }
+
 /* HERO */
 .hero{
   height:60vh;
@@ -217,7 +224,8 @@ footer{
       <img src="logo.png" alt="FEJEB ONG">
       <span>FEJEB ONG</span>
     </div>
-    <nav>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav id="menu">
       <a href="index.html">Accueil</a>
       <a href="apropos.html">À propos</a>
       <a href="actions.html">Actions</a>
@@ -263,6 +271,12 @@ footer{
 <footer>
   © 2026 FEJEB ONG — Organisation reconnue, transparente et engagée
 </footer>
+
+<script>
+  function toggleMenu(){
+    document.getElementById("menu").classList.toggle("active");
+  }
+</script>
 
 </body>
 </html>
