@@ -29,11 +29,11 @@
 
     body{
       background:linear-gradient(
-    135deg,
-    #003b8f,
-    #0057ff,
-    #00a3ff
-  );
+        135deg,
+        #003b8f,
+        #0057ff,
+        #00a3ff
+      );
       color:#222;
       line-height:1.7;
     }
@@ -74,6 +74,11 @@
       font-size:18px
     }
 
+    nav{
+      display:flex;
+      align-items:center;
+    }
+
     nav a{
       margin:0 10px;
       text-decoration:none;
@@ -95,6 +100,12 @@
 
     nav a:hover::after{
       width:100%;
+    }
+
+    .menu-toggle{
+      display:none;
+      font-size:30px;
+      cursor:pointer;
     }
 
     .hero{
@@ -186,66 +197,44 @@
       opacity:.9
     }
 
-/* ===== MENU MOBILE PRO ===== */
+    /* RESPONSIVE IDENTIQUE À L’ACCUEIL */
+    @media(max-width:900px){
+      nav{
+        position:absolute;
+        top:70px;
+        left:0;
+        width:100%;
+        background:white;
+        flex-direction:column;
+        display:none;
+        box-shadow:0 10px 30px rgba(0,0,0,.1);
+      }
 
-.burger{
-  display:none;
-  flex-direction:column;
-  gap:6px;
-  cursor:pointer;
-}
+      nav.active{
+        display:flex;
+      }
 
-.burger span{
-  width:25px;
-  height:3px;
-  background:var(--green);
-  border-radius:3px;
-  transition:.3s;
-}
+      nav a{
+        margin:15px 0;
+        font-size:18px;
+      }
 
-.mobile-menu{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100vh;
-  background:linear-gradient(
-    rgba(0,135,81,.97),
-    rgba(0,135,81,.97)
-  );
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:30px;
-  transform:translateX(100%);
-  transition:transform .4s ease;
-  z-index:999;
-}
+      .menu-toggle{
+        display:block;
+      }
 
-.mobile-menu a{
-  color:white;
-  font-size:22px;
-  text-decoration:none;
-  font-weight:600;
-}
+      .hero h1{
+        font-size:32px;
+      }
 
-.mobile-menu.active{
-  transform:translateX(0);
-}
+      .hero p{
+        font-size:18px;
+      }
 
-/* RESPONSIVE */
-@media(max-width:900px){
-  .nav-links{
-    display:none;
-  }
-
-  .burger{
-    display:flex;
-  }
-}
-
-
+      .section-card{
+        padding:40px 25px;
+      }
+    }
   </style>
 </head>
 
@@ -258,8 +247,9 @@
       <span>FEJEB ONG</span>
     </div>
 
-    <!-- MENU DESKTOP -->
-    <nav class="nav-links">
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <nav id="menu">
       <a href="index.html">Accueil</a>
       <a href="a propos.html">À propos</a>
       <a href="actions.html">Actions</a>
@@ -269,25 +259,8 @@
       <a href="don.html">Don</a>
       <a href="contact.html">Contact</a>
     </nav>
-
-    <!-- BOUTON MENU MOBILE -->
-    <div class="burger" id="burger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </div>
-
-  <!-- MENU MOBILE -->
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html">Accueil</a>
-    <a href="a propos.html">À propos</a>
-    <a href="actions.html">Actions</a>
-    <a href="#">Don</a>
-    <a href="#">Contact</a>
   </div>
 </header>
-
 
 <section class="hero">
   <div>
@@ -298,131 +271,54 @@
 
 <main>
 
-  <section class="section-card">
+<section class="section-card">
   <h2>🌍 FEJEB — Femmes, Enfants et Jeunes Épanouis du Bénin</h2>
-
-  <p>
-    <strong>FEJEB</strong> (Femmes, Enfants et Jeunes Épanouis du Bénin) est une organisation
-    engagée dans la promotion du développement humain, social et citoyen,
-    avec un accent particulier sur les femmes, les enfants et les jeunes.
-  </p>
-
-  <p>
-    L’organisation est née d’un constat clair :
-    au Bénin, une grande partie de la population, notamment la jeunesse,
-    dispose d’un potentiel considérable mais fait face à des obstacles structurels
-    limitant son épanouissement et sa participation active au développement.
-  </p>
-
-  <p>
-    FEJEB s’inscrit comme une réponse concrète à ces défis,
-    en proposant des actions de terrain, des cadres d’accompagnement
-    et des initiatives adaptées aux réalités locales.
-  </p>
+  <p><strong>FEJEB</strong> (Femmes, Enfants et Jeunes Épanouis du Bénin) est une organisation engagée dans la promotion du développement humain, social et citoyen, avec un accent particulier sur les femmes, les enfants et les jeunes.</p>
+  <p>L’organisation est née d’un constat clair : au Bénin, une grande partie de la population, notamment la jeunesse, dispose d’un potentiel considérable mais fait face à des obstacles structurels limitant son épanouissement.</p>
+  <p>FEJEB s’inscrit comme une réponse concrète à ces défis, en proposant des actions de terrain adaptées aux réalités locales.</p>
 </section>
 
 <section class="section-card">
   <h2>🎯 Notre raison d’être</h2>
-
-  <p>
-    La jeunesse représente une force stratégique pour le développement du Bénin.
-    Pourtant, de nombreux jeunes restent confrontés à :
-  </p>
-
+  <p>La jeunesse représente une force stratégique pour le développement du Bénin.</p>
   <ul>
-    <li>le manque d’opportunités de formation pratique,</li>
-    <li>le chômage et le sous-emploi,</li>
-    <li>l’absence d’encadrement et de mentorat,</li>
-    <li>la marginalisation dans les processus de décision.</li>
+    <li>manque d’opportunités de formation pratique</li>
+    <li>chômage et sous-emploi</li>
+    <li>absence de mentorat</li>
+    <li>marginalisation</li>
   </ul>
-
-  <p>
-    <strong>FEJEB existe pour contribuer à inverser cette tendance</strong>,
-    en favorisant l’autonomisation, la responsabilisation
-    et l’engagement citoyen des femmes, des enfants et des jeunes.
-  </p>
 </section>
 
 <section class="section-card">
   <h2>🛠️ Notre mission</h2>
-
-  <p>
-    La mission de FEJEB est de <strong>former, sensibiliser, accompagner et représenter</strong>
-    les femmes, les enfants et les jeunes afin de renforcer leurs capacités
-    et leur participation active au développement durable.
-  </p>
-
-  <h3>Nos actions s’articulent autour de plusieurs axes :</h3>
-
-  <ul>
-    <li>renforcement des capacités et formations pratiques,</li>
-    <li>sensibilisation à la citoyenneté, au leadership et à la responsabilité sociale,</li>
-    <li>accompagnement des jeunes porteurs de projets,</li>
-    <li>promotion de l’engagement communautaire et solidaire.</li>
-  </ul>
+  <p>Former, sensibiliser, accompagner et représenter les femmes, enfants et jeunes.</p>
 </section>
 
 <section class="section-card">
   <h2>🏗️ Notre cadre organisationnel</h2>
-
-  <p>
-    FEJEB est structurée autour d’une organisation interne
-    fondée sur la collaboration, la participation et la responsabilité.
-  </p>
-
-  <p>
-    L’organisation fonctionne avec :
-  </p>
-
-  <ul>
-    <li>une coordination engagée,</li>
-    <li>des membres actifs et bénévoles,</li>
-    <li>des partenaires communautaires et institutionnels.</li>
-  </ul>
-
-  <p>
-    Cette structure permet à FEJEB de mener des actions cohérentes,
-    adaptées aux besoins des bénéficiaires et aux réalités du terrain.
-  </p>
+  <p>Une organisation basée sur la collaboration et la responsabilité.</p>
 </section>
 
 <section class="section-card">
   <h2>🌱 Nos valeurs fondamentales</h2>
-
   <ul>
-    <li><strong>Engagement</strong> : agir de manière concrète et durable</li>
-    <li><strong>Responsabilité</strong> : assumer pleinement notre rôle social</li>
-    <li><strong>Solidarité</strong> : promouvoir l’inclusion et l’entraide</li>
-    <li><strong>Transparence</strong> : instaurer la confiance avec nos partenaires et bénéficiaires</li>
-    <li><strong>Leadership</strong> : encourager des leaders responsables et éthiques</li>
-    <li><strong>Citoyenneté</strong> : contribuer activement au développement national</li>
+    <li>Engagement</li>
+    <li>Responsabilité</li>
+    <li>Solidarité</li>
+    <li>Transparence</li>
+    <li>Leadership</li>
+    <li>Citoyenneté</li>
   </ul>
 </section>
 
 <section class="section-card">
   <h2>📊 Transparence et engagement</h2>
-
-  <p>
-    FEJEB s’engage à une gestion responsable et transparente
-    de l’ensemble des ressources mises à sa disposition.
-  </p>
-
-  <p>
-    Chaque action menée vise un impact réel, mesurable et durable,
-    au bénéfice direct des communautés accompagnées.
-  </p>
+  <p>Gestion responsable et impact mesurable.</p>
 </section>
 
 <section class="section-card">
   <h2>🚀 Notre vision</h2>
-
-  <p>
-    FEJEB ambitionne de contribuer à l’émergence
-    d’une société béninoise inclusive,
-    où les femmes, les enfants et les jeunes
-    sont autonomes, formés, responsables
-    et pleinement acteurs du développement.
-  </p>
+  <p>Une société béninoise inclusive et engagée.</p>
 </section>
 
 </main>
@@ -431,23 +327,11 @@
   <p>© 2026 FEJEB ONG — Tous droits réservés</p>
 </footer>
 
-
 <script>
-  const burger = document.getElementById("burger");
-  const mobileMenu = document.getElementById("mobileMenu");
-
-  burger.addEventListener("click", () => {
-    mobileMenu.classList.toggle("active");
-  });
-
-  document.querySelectorAll(".mobile-menu a").forEach(link => {
-    link.addEventListener("click", () => {
-      mobileMenu.classList.remove("active");
-    });
-  });
+  function toggleMenu(){
+    document.getElementById("menu").classList.toggle("active");
+  }
 </script>
-
-
 
 </body>
 </html>
