@@ -1,97 +1,55 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-
   <meta charset="UTF-8">
-
-  <title>Contact FEJEB ONG | Partenariats, Dons & Bénévolat au Bénin</title>
+  <title>Contact | FEJEB ONG</title>
 
   <meta name="description" content="Contactez FEJEB ONG pour partenariats, dons, bénévolat ou informations. Ensemble, agissons pour les femmes, les enfants et les jeunes du Bénin.">
-  <meta name="keywords" content="Contact FEJEB ONG, ONG Bénin, Partenariat ONG, Dons humanitaires, Bénévolat Afrique, Aide sociale Bénin">
+  <meta name="keywords" content="Contact FEJEB ONG, ONG Bénin, Partenariat ONG, Dons, Bénévolat">
   <meta name="author" content="FEJEB ONG">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="canonical" href="https://fejeb-ong.org/contact.html">
   <link rel="icon" type="image/png" href="favicon.png">
 
-  <!-- OPEN GRAPH -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Contact FEJEB ONG">
-  <meta property="og:description" content="Écrivez à FEJEB ONG pour partenariats, dons ou bénévolat. Nous répondons rapidement.">
-  <meta property="og:url" content="https://fejeb-ong.org/contact.html">
-  <meta property="og:image" content="https://fejeb-ong.org/cover-contact.jpg">
-  <meta property="og:site_name" content="FEJEB ONG">
-
-  <!-- TWITTER CARD -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Contact FEJEB ONG">
-  <meta name="twitter:description" content="Partenariats, dons, bénévolat : contactez FEJEB ONG.">
-  <meta name="twitter:image" content="https://fejeb-ong.org/cover-contact.jpg">
-
-  <!-- SCHEMA.ORG -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "NGO",
-    "name": "FEJEB ONG",
-    "url": "https://fejeb-ong.org",
-    "logo": "https://fejeb-ong.org/logo.png",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+2290148484048",
-      "contactType": "customer support",
-      "areaServed": "BJ",
-      "availableLanguage": ["fr"]
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Cotonou",
-      "addressCountry": "BJ"
+  <style>
+    :root{
+      --green:#008751;
+      --yellow:#FCD116;
+      --red:#E8112D;
+      --dark:#0e1b16;
     }
-  }
-  </script>
 
-<style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",Arial,sans-serif}
+    body{background:linear-gradient(
+    135deg,
+    #003b8f,
+    #0057ff,
+    #00a3ff
+  );}
 
-:root{
-  --green:#008751;
-  --yellow:#FCD116;
-  --red:#E8112D;
-  --dark:#0e1b16;
-}
+    header{
+      position:fixed;top:0;width:100%;
+      background:rgba(255,255,255,0.95);
+      box-shadow:0 2px 10px rgba(0,0,0,0.05);
+      z-index:1000;
+    }
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",Arial,sans-serif}
+    .nav{
+      max-width:1200px;margin:auto;
+      display:flex;justify-content:space-between;align-items:center;
+      padding:15px 20px;
+      font-weight:600;
+      font-size:17px;
+    }
 
-body{
-  background:linear-gradient(135deg,#003b8f,#0057ff,#00a3ff);
-}
+    .logo{display:flex;align-items:center;gap:10px}
+    .logo img{height:45px}
+    .logo span{font-weight:700;color:var(--green);font-size:18px}
 
-/* HEADER */
-header{
-  position:fixed;
-  top:0;
-  width:100%;
-  background:rgba(255,255,255,0.95);
-  box-shadow:0 2px 10px rgba(0,0,0,0.05);
-  z-index:1000;
-}
+    nav a{margin:0 10px;text-decoration:none;color:#333;font-weight:500}
+    nav a:hover{color:var(--green)}
 
-.nav{
-  max-width:1200px;
-  margin:auto;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:15px 20px;
-  font-weight:600;
-  font-size:17px;
-}
-
-.logo{display:flex;align-items:center;gap:10px}
-.logo img{height:45px}
-.logo span{font-weight:700;color:var(--green);font-size:18px}
-
-nav a{
+    nav a{
   position:relative;
   margin:0 12px;
   text-decoration:none;
@@ -111,126 +69,146 @@ nav a::after{
   transition:width .3s ease;
 }
 
-nav a:hover::after{width:100%}
-nav a:hover{color:var(--green)}
-
-/* HERO */
-.hero{
-  height:60vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url('fond.jpg') center/cover no-repeat;
-  text-align:center;
-  color:white;
-  padding:20px;
+nav a:hover::after{
+  width:100%;
 }
 
-.hero h1{font-size:46px;max-width:900px;margin:auto}
-.hero p{margin-top:20px;font-size:20px;max-width:800px;margin:auto}
-
-/* MAIN */
-main{
-  max-width:1200px;
-  margin:auto;
-  padding:100px 20px 80px;
-  display:grid;
-  gap:60px;
-}
-
-.section-card{
-  background:#fff;
-  border-radius:18px;
-  padding:50px;
-  box-shadow:0 12px 35px rgba(0,0,0,.08);
-}
-
-.section-card h2{
+nav a:hover{
   color:var(--green);
-  margin-bottom:25px;
-  font-size:32px;
-  text-align:center;
 }
 
-.contact-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:40px;
-}
 
-.contact-info div{
-  margin-bottom:25px;
-  background:#f3f7f5;
-  padding:25px;
-  border-radius:14px;
-}
+    .hero{
+      height:60vh;
+      display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url('fond.jpg') center/cover no-repeat;
+      text-align:center;color:white;padding:20px;
+    }
 
-.contact-info strong{
-  display:block;
-  color:var(--green);
-  margin-bottom:8px;
-  font-size:18px;
-}
+    .hero h1{font-size:46px;max-width:900px;margin:auto}
+    .hero p{margin-top:20px;font-size:20px;max-width:800px;margin:auto}
 
-form label{
-  font-weight:600;
-  display:block;
-  margin-bottom:6px;
-}
+    main{
+      max-width:1200px;
+      margin:auto;
+      padding:100px 20px 80px;
+      display:grid;
+      gap:60px;
+    }
 
-form input, form textarea, form select{
+    .section-card{
+      background:#fff;
+      border-radius:18px;
+      padding:50px;
+      box-shadow:0 12px 35px rgba(0,0,0,.08);
+    }
+
+    .section-card h2{
+      color:var(--green);
+      margin-bottom:25px;
+      font-size:32px;
+      text-align:center;
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:40px;
+    }
+
+    .contact-info div{
+      margin-bottom:25px;
+      background:#f3f7f5;
+      padding:25px;
+      border-radius:14px;
+    }
+
+    .contact-info strong{
+      display:block;
+      color:var(--green);
+      margin-bottom:8px;
+      font-size:18px;
+    }
+
+    form label{
+      font-weight:600;
+      display:block;
+      margin-bottom:6px;
+    }
+
+    form input, form textarea{
+      width:100%;
+      padding:14px;
+      border-radius:10px;
+      border:1px solid #ccc;
+      margin-bottom:20px;
+      font-size:15px;
+    }
+
+    form textarea{min-height:140px;resize:vertical}
+
+    form select{
   width:100%;
   padding:14px;
   border-radius:10px;
   border:1px solid #ccc;
   margin-bottom:20px;
   font-size:15px;
+  background:white;
 }
 
-form textarea{min-height:140px;resize:vertical}
 
-form button{
-  background:var(--green);
-  color:white;
-  border:none;
-  padding:14px 30px;
-  font-size:16px;
-  border-radius:30px;
-  cursor:pointer;
-  font-weight:600;
-}
+    form button{
+      background:var(--green);
+      color:white;
+      border:none;
+      padding:14px 30px;
+      font-size:16px;
+      border-radius:30px;
+      cursor:pointer;
+      font-weight:600;
+    }
 
-form button:hover{opacity:.9}
+    form button:hover{opacity:.9}
 
-.cta{text-align:center}
+    .cta{
+      text-align:center;
+    }
 
-.cta a{
-  display:inline-block;
-  margin-top:20px;
-  background:var(--yellow);
-  padding:14px 30px;
-  border-radius:30px;
-  font-weight:600;
-  color:#000;
-  text-decoration:none;
-}
+    .cta a{
+      display:inline-block;
+      margin-top:20px;
+      background:var(--yellow);
+      padding:14px 30px;
+      border-radius:30px;
+      font-weight:600;
+      color:#000;
+      text-decoration:none;
+    }
 
-footer{
-  background:var(--dark);
-  color:white;
-  padding:50px 20px;
-  text-align:center;
-}
+    footer{
+      background:var(--dark);
+      color:white;
+      padding:50px 20px;
+      text-align:center;
+    }
 
-footer p{opacity:.85}
+    footer p{opacity:.85}
 
-.contact-link{
+    @media(max-width:900px){
+      .contact-grid{grid-template-columns:1fr}
+      .hero h1{font-size:36px}
+    }
+
+    .contact-link{
   color:#0A6CFF;
   text-decoration:none;
   font-weight:600;
 }
 
-.contact-link:hover{text-decoration:underline}
+.contact-link:hover{
+  text-decoration:underline;
+}
 
 .socials{
   display:flex;
@@ -246,97 +224,63 @@ footer p{opacity:.85}
   color:white;
   text-decoration:none;
   font-weight:600;
+  transition:transform .2s, opacity .2s;
+}
+
+.social:hover{
+  transform:translateY(-3px);
+  opacity:.9;
 }
 
 .whatsapp{background:#25D366}
 .facebook{background:#1877F2}
 .messenger{background:#E8112D}
 
-@media(max-width:900px){
-  .contact-grid{grid-template-columns:1fr}
-  .hero h1{font-size:36px}
-}
-/* ===============================
-   RESPONSIVE MOBILE IDENTIQUE ACCUEIL
-   =============================== */
+/* RESPONSIVE MOBILE */
+    @media(max-width:900px){
+      nav{
+        position:absolute;
+        top:70px;
+        left:0;
+        width:100%;
+        background:white;
+        flex-direction:column;
+        display:none;
+        box-shadow:0 10px 30px rgba(0,0,0,.1);
+      }
 
-@media (max-width: 768px) {
+      nav.active{
+        display:flex;
+      }
 
-  header{
-    position:fixed;
-  }
+      nav a{
+        margin:15px 0;
+        font-size:18px;
+      }
 
-  .nav{
-    flex-direction:column;
-    gap:12px;
-  }
+      .menu-toggle{
+        display:block;
+      }
 
-  nav{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-  }
+      .hero h1{
+        font-size:34px;
+      }
 
-  nav a{
-    margin:6px 10px;
-    font-size:15px;
-  }
+      .hero p{
+        font-size:18px;
+      }
 
-  .hero{
-    height:auto;
-    padding:120px 15px 60px;
-  }
+      .btn{
+        width:100%;
+        max-width:320px;
+      }
 
-  .hero h1{
-    font-size:30px;
-    line-height:1.25;
-  }
+      .section-card{
+        padding:40px 25px;
+      }
+    }
 
-  .hero p{
-    font-size:16px;
-    margin-top:14px;
-  }
-
-  main{
-    padding:40px 15px 60px;
-  }
-
-  .section-card{
-    padding:30px 20px;
-    border-radius:14px;
-  }
-
-  .section-card h2{
-    font-size:24px;
-  }
-
-  .contact-grid{
-    grid-template-columns:1fr;
-    gap:30px;
-  }
-
-  .contact-info div{
-    padding:20px;
-  }
-
-  form input,
-  form textarea,
-  form select{
-    font-size:16px;
-  }
-
-  .cta a,
-  form button{
-    width:100%;
-    text-align:center;
-  }
-
-  footer{
-    padding:40px 15px;
-  }
-}
-
-</style>
+  </style>
 </head>
 
 <body>
@@ -363,8 +307,14 @@ footer p{opacity:.85}
 <section class="hero">
   <div>
     <h1>Contactez FEJEB ONG</h1>
-    <p>Écrivez-nous grâce à ce formulaire, et nous orienterons votre message vers le meilleur collaborateur.</p>
-    <p>Une question, un partenariat, un don ou un engagement bénévole ? Notre équipe est à votre écoute.</p>
+  <p> Écrivez-nous grâce à ce formulaire, et nous orienterons votre message vers le meilleur collaborateur en fonction de votre demande.
+    </p>
+
+    <p>
+      Une question, un partenariat, un don ou un engagement bénévole ?
+      Notre équipe est à votre écoute.
+      Les champs marqués d'une étoile (*) sont obligatoires, merci de veiller à les remplir.
+    </p>
   </div>
 </section>
 
@@ -466,4 +416,3 @@ footer p{opacity:.85}
 
 </body>
 </html>
-
