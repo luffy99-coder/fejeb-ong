@@ -221,56 +221,61 @@ footer{
   © 2026 FEJEB ONG — Transparence, action et impact durable
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  
 <script>
 const SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRh4rQ6mAYpcU5UJM2PCY_u9pq6h6cRTdTnQczQzk35nsyVMiM64wtfrtmM0geDgL16-D5hJgULSKeI/pub?gid=1521425820&single=true&output=csv";
 const PER_PAGE = 6;
 let currentPage = 1;
 let rows = [];
 
-fetch(SHEET_URL)
-.then(r => r.text())
-.then(csv => {
-  rows = csv.trim().split("\n").slice(1);
-  rows.reverse();
-  render();
+Papa.parse(SHEET_URL, {
+  download: true,
+  header: true,
+  skipEmptyLines: true,
+  complete: function(result) {
+    rows = result.data;
+
+    rows.sort((a,b) => new Date(b.date) - new Date(a.date));
+    render();
+  }
 });
 
 function render(){
   const grid = document.getElementById("newsGrid");
+  const modal = document.getElementById("modalContainer");
   grid.innerHTML = "";
+  modal.innerHTML = "";
 
   const start = (currentPage - 1) * PER_PAGE;
   const pageRows = rows.slice(start, start + PER_PAGE);
 
-  pageRows.forEach(row => {
-    const c = row.split(",").map(x => x.replace(/^"|"$/g,"").trim());
-    if(c.length < 5) return;
+  pageRows.forEach((row, i) => {
+    const id = "news" + (start + i);
 
     grid.innerHTML += `
       <article class="news-card">
-        <img src="${c[4]}" alt="${c[1]}" loading="lazy">
+        <img src="${row.image}" alt="${row.titre}" loading="lazy">
         <div class="news-content">
-          <div class="news-meta">${c[0]}</div>
-          <h3>${c[1]}</h3>
-          <p>${c[2]}</p>
-
-          <div class="more-text">
-            <p>${c[3]}</p>
-          </div>
-
-          <button class="btn-lire-plus">Lire plus</button>
+          <div class="news-meta">${row.date}</div>
+          <h3>${row.titre}</h3>
+          <p>${row.resume}</p>
+          <button class="badge" onclick="openModal('${id}')">Lire plus</button>
         </div>
       </article>
     `;
-  });
 
-  document.querySelectorAll(".btn-lire-plus").forEach(btn=>{
-    btn.onclick = ()=>{
-      const more = btn.previousElementSibling;
-      const open = more.style.display === "block";
-      more.style.display = open ? "none" : "block";
-      btn.textContent = open ? "Lire plus" : "Lire moins";
-    }
+    modal.innerHTML += `
+      <div class="modal" id="${id}">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal('${id}')">✖</span>
+          <img src="${row.image}" alt="${row.titre}">
+          <h2>${row.titre}</h2>
+          <p><strong>${row.date}</strong></p>
+          <p>${row.contenu}</p>
+        </div>
+      </div>
+    `;
   });
 
   renderPagination();
@@ -280,6 +285,7 @@ function renderPagination(){
   const p = document.getElementById("pagination");
   p.innerHTML = "";
   const total = Math.ceil(rows.length / PER_PAGE);
+
   for(let i=1;i<=total;i++){
     p.innerHTML += `<button onclick="goPage(${i})">${i}</button>`;
   }
@@ -290,10 +296,15 @@ function goPage(p){
   render();
 }
 
-function toggleMenu(){
-  document.getElementById("menu").classList.toggle("active");
+function openModal(id){
+  document.getElementById(id).style.display = "flex";
+}
+
+function closeModal(id){
+  document.getElementById(id).style.display = "none";
 }
 </script>
-
+  
 </body>
+
 </html>
