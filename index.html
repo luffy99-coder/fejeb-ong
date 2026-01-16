@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>FEJEB ONG | Femmes, Enfants et Jeunes Épanouis du Bénin</title>
+
+  <meta name="description" content="FEJEB ONG agit pour l’autonomisation des femmes, la protection des enfants et l’épanouissement des jeunes au Bénin.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="FEJEB ONG">
+
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <style>
+    :root{
+      --green:#008751;
+      --yellow:#FCD116;
+      --red:#E8112D;
+      --dark:#0e1b16;
+      --bodybg:#eef3f1;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:"Segoe UI",Arial,sans-serif
+    }
+
+    body{
+      background:linear-gradient(
+    135deg,
+    #003b8f,
+    #0057ff,
+    #00a3ff
+  );
+      color:#222;
+      line-height:1.7;
+    }
+
+    header{
+      position:fixed;
+      top:0;
+      width:100%;
+      background:rgba(255,255,255,.96);
+      box-shadow:0 2px 10px rgba(0,0,0,.05);
+      z-index:1000;
+    }
+
+    .nav{
+      max-width:1200px;
+      margin:auto;
+      font-weight:600;
+      font-size:17px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:15px 20px;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:10px
+    }
+
+    .logo img{
+      height:45px
+    }
+
+    .logo span{
+      font-weight:700;
+      color:var(--green);
+      font-size:18px
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+    }
+
+    nav a{
+      margin:0 12px;
+      text-decoration:none;
+      color:#333;
+      font-weight:500;
+      position:relative;
+    }
+
+    nav a::after{
+      content:"";
+      position:absolute;
+      bottom:-5px;
+      left:0;
+      width:0;
+      height:2px;
+      background:var(--green);
+      transition:.3s;
+    }
+
+    nav a:hover::after{
+      width:100%;
+    }
+
+    /* MENU MOBILE */
+    .menu-toggle{
+      display:none;
+      font-size:30px;
+      cursor:pointer;
+    }
+
+    .hero{
+      height:80vh;
+      background:
+        linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+        url('fond.jpg') center/cover no-repeat;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:white;
+      padding:20px;
+    }
+
+    .hero h1{
+      font-size:50px;
+      max-width:900px;
+      margin:auto
+    }
+
+    .hero p{
+      margin-top:25px;
+      font-size:20px;
+      max-width:800px;
+      margin:auto
+    }
+
+    .hero .cta{
+      margin-top:40px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 30px;
+      border-radius:30px;
+      text-decoration:none;
+      font-weight:600;
+      margin:10px;
+    }
+
+    .btn-primary{
+      background:linear-gradient(90deg,var(--yellow),#ffe27a);
+      color:#000;
+    }
+
+    .btn-outline{
+      border:2px solid white;
+      color:white;
+    }
+
+    main{
+      max-width:1200px;
+      margin:auto;
+      padding:120px 20px 80px;
+      display:grid;
+      gap:70px;
+    }
+
+    .section-card{
+      background:white;
+      padding:60px;
+      border-radius:22px;
+      box-shadow:0 15px 40px rgba(0,0,0,.08);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .section-card::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      width:6px;
+      height:100%;
+      background:linear-gradient(var(--green),var(--yellow),var(--red));
+    }
+
+    .section-card h2{
+      text-align:center;
+      color:var(--green);
+      margin-bottom:30px;
+      font-size:34px;
+    }
+
+    .section-card h2 span{
+      font-size:34px;
+      margin-right:10px;
+    }
+
+    .section-card p{
+      margin-bottom:18px;
+      font-size:17px;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:30px;
+    }
+
+    .box{
+      padding:35px;
+      border-radius:18px;
+      background:linear-gradient(180deg,#f9f9f9,#ffffff);
+      text-align:center;
+      box-shadow:0 10px 25px rgba(0,0,0,.05);
+    }
+
+    .box span{
+      font-size:40px;
+      display:block;
+      margin-bottom:15px;
+    }
+
+    .box h3{
+      margin-bottom:15px;
+      color:#222
+    }
+
+    .impact{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:30px;
+      text-align:center;
+    }
+
+    .impact div{
+      background:linear-gradient(180deg,#f3f6f5,#ffffff);
+      padding:40px;
+      border-radius:20px;
+      box-shadow:0 10px 25px rgba(0,0,0,.05);
+    }
+
+    .impact strong{
+      display:block;
+      font-size:38px;
+      color:var(--green);
+      margin-bottom:10px;
+    }
+
+    footer{
+      background:linear-gradient(90deg,var(--green),var(--dark));
+      color:white;
+      padding:50px 20px;
+      text-align:center;
+    }
+
+    footer p{
+      opacity:.9
+    }
+
+    /* RESPONSIVE MOBILE */
+    @media(max-width:900px){
+      nav{
+        position:absolute;
+        top:70px;
+        left:0;
+        width:100%;
+        background:white;
+        flex-direction:column;
+        display:none;
+        box-shadow:0 10px 30px rgba(0,0,0,.1);
+      }
+
+      nav.active{
+        display:flex;
+      }
+
+      nav a{
+        margin:15px 0;
+        font-size:18px;
+      }
+
+      .menu-toggle{
+        display:block;
+      }
+
+      .hero h1{
+        font-size:34px;
+      }
+
+      .hero p{
+        font-size:18px;
+      }
+
+      .btn{
+        width:100%;
+        max-width:320px;
+      }
+
+      .section-card{
+        padding:40px 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">
+      <img src="logo.png" alt="Logo FEJEB">
+      <span>FEJEB ONG</span>
+    </div>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <nav id="menu">
+      <a href="index.html">Accueil</a>
+      <a href="a propos.html">À propos</a>
+      <a href="actions.html">Actions</a>
+      <a href="impact.html">Impact</a>
+      <a href="membres.html">Équipe</a>
+      <a href="actualites.html">Actualités</a>
+      <a href="don.html">Don</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div>
+    <h1>Femmes, Enfants et Jeunes Épanouis du Bénin</h1>
+    <p>
+      FEJEB œuvre pour bâtir une jeunesse consciente, responsable et actrice du développement durable au Bénin.
+    </p>
+    <div class="cta">
+      <a href="don.html" class="btn btn-primary">Soutenir notre action</a>
+      <a href="a propos.html" class="btn btn-outline">Découvrir FEJEB</a>
+    </div>
+  </div>
+</section>
+
+<main>
+
+  <section class="section-card">
+    <h2><span>🎯</span>Notre mission</h2>
+    <p>
+      FEJEB agit pour l’autonomisation des femmes, la protection des enfants
+      et l’épanouissement des jeunes à travers des actions éducatives,
+      sociales et citoyennes durables.
+    </p>
+    <p>
+      Nous croyons qu’une jeunesse formée, encadrée et engagée est la clé
+      d’un développement harmonieux et inclusif.
+    </p>
+  </section>
+
+  <section class="section-card">
+    <h2><span>🧩</span>Nos domaines d’intervention</h2>
+    <div class="grid-3">
+      <div class="box">
+        <span>👩🏽‍💼</span>
+        <h3>Femmes</h3>
+        <p>Autonomisation économique, leadership féminin et inclusion sociale.</p>
+      </div>
+      <div class="box">
+        <span>👶🏽</span>
+        <h3>Enfants</h3>
+        <p>Protection, éducation, bien-être et accompagnement.</p>
+      </div>
+      <div class="box">
+        <span>🧑🏽‍🎓</span>
+        <h3>Jeunes</h3>
+        <p>Formation, orientation, citoyenneté et entrepreneuriat.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-card">
+    <h2><span>⭐</span>Pourquoi FEJEB ?</h2>
+    <p>
+      FEJEB se distingue par son approche de terrain,
+      son engagement communautaire et sa volonté de produire
+      un impact réel et mesurable.
+    </p>
+    <p>
+      Nous ne faisons pas de promesses.
+      Nous construisons des solutions avec et pour les bénéficiaires.
+    </p>
+  </section>
+
+  <section class="section-card">
+    <h2><span>📊</span>Notre impact</h2>
+    <div class="impact">
+      <div>
+        <strong>+1 000</strong>
+        Jeunes sensibilisés
+      </div>
+      <div>
+        <strong>+300</strong>
+        Femmes accompagnées
+      </div>
+      <div>
+        <strong>+20</strong>
+        Actions communautaires
+      </div>
+    </div>
+  </section>
+
+  <section class="section-card">
+    <h2><span>❤️</span>Soutenir FEJEB</h2>
+    <p>
+      Chaque don contribue directement à renforcer nos actions
+      et à offrir de nouvelles opportunités aux femmes,
+      aux enfants et aux jeunes.
+    </p>
+    <p style="text-align:center;margin-top:30px;">
+      <a href="don.html" class="btn btn-primary">Faire un don</a>
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 FEJEB ONG — Tous droits réservés</p>
+</footer>
+
+<script>
+  function toggleMenu(){
+    document.getElementById("menu").classList.toggle("active");
+  }
+</script>
+
+</body>
+</html>

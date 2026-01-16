@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>FEJEB ONG | Femmes, Enfants et Jeunes Épanouis du Bénin</title>
+
+  <meta name="description" content="FEJEB ONG œuvre pour l’autonomisation des femmes, la protection des enfants et l’épanouissement des jeunes au Bénin.">
+  <meta name="keywords" content="ONG Bénin, FEJEB, Femmes, Enfants, Jeunes, Jeunesse béninoise, Développement">
+  <meta name="author" content="FEJEB ONG">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <style>
+    :root{
+      --green:#008751;
+      --yellow:#FCD116;
+      --red:#E8112D;
+      --dark:#0e1b16;
+      --bodybg:#eef3f1;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:"Segoe UI",Arial,sans-serif
+    }
+
+    body{
+      background:linear-gradient(
+    135deg,
+    #003b8f,
+    #0057ff,
+    #00a3ff
+  );
+      color:#222;
+      line-height:1.7;
+    }
+
+    header{
+      position:fixed;
+      top:0;
+      width:100%;
+      background:rgba(255,255,255,0.96);
+      box-shadow:0 4px 15px rgba(0,0,0,0.15);
+      z-index:1000;
+    }
+
+    .nav{
+      max-width:1200px;
+      margin:auto;
+      font-weight:600;
+      font-size:17px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:15px 20px;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:10px
+    }
+
+    .logo img{
+      height:45px
+    }
+
+    .logo span{
+      font-weight:700;
+      color:var(--green);
+      font-size:18px
+    }
+
+    nav a{
+      margin:0 10px;
+      text-decoration:none;
+      color:#333;
+      font-weight:500;
+      position:relative;
+    }
+
+    nav a::after{
+      content:"";
+      position:absolute;
+      bottom:-5px;
+      left:0;
+      width:0;
+      height:2px;
+      background:var(--green);
+      transition:.3s;
+    }
+
+    nav a:hover::after{
+      width:100%;
+    }
+
+    .hero{
+      height:80vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:
+        linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+        url('fond.jpg') center/cover no-repeat;
+      text-align:center;
+      color:white;
+      padding:20px;
+    }
+
+    .hero h1{
+      font-size:48px;
+      max-width:900px;
+      margin:auto
+    }
+
+    .hero p{
+      margin-top:20px;
+      font-size:20px;
+      max-width:800px;
+      margin:auto
+    }
+
+    main{
+      max-width:1200px;
+      margin:auto;
+      padding:120px 20px 80px;
+      display:grid;
+      gap:60px;
+    }
+
+    .section-card{
+      background:white;
+      border-radius:22px;
+      padding:55px;
+      box-shadow:0 15px 40px rgba(0,0,0,.08);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .section-card::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      width:6px;
+      height:100%;
+      background:linear-gradient(var(--green),var(--yellow),var(--red));
+    }
+
+    .section-card h2{
+      color:var(--green);
+      margin-bottom:25px;
+      font-size:32px;
+      text-align:center;
+    }
+
+    .section-card h3{
+      margin-top:30px;
+      color:#222
+    }
+
+    .section-card ul{
+      margin:20px 0 20px 25px;
+    }
+
+    .section-card ul li{
+      margin-bottom:10px;
+    }
+
+    .section-card p{
+      margin-bottom:18px;
+      font-size:17px;
+    }
+
+    footer{
+      background:linear-gradient(90deg,var(--green),var(--dark));
+      color:white;
+      padding:50px 20px;
+      text-align:center;
+    }
+
+    footer p{
+      opacity:.9
+    }
+
+/* ===== MENU MOBILE PRO ===== */
+
+.burger{
+  display:none;
+  flex-direction:column;
+  gap:6px;
+  cursor:pointer;
+}
+
+.burger span{
+  width:25px;
+  height:3px;
+  background:var(--green);
+  border-radius:3px;
+  transition:.3s;
+}
+
+.mobile-menu{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100vh;
+  background:linear-gradient(
+    rgba(0,135,81,.97),
+    rgba(0,135,81,.97)
+  );
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:30px;
+  transform:translateX(100%);
+  transition:transform .4s ease;
+  z-index:999;
+}
+
+.mobile-menu a{
+  color:white;
+  font-size:22px;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.mobile-menu.active{
+  transform:translateX(0);
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav-links{
+    display:none;
+  }
+
+  .burger{
+    display:flex;
+  }
+}
+
+
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">
+      <img src="logo.png" alt="Logo FEJEB">
+      <span>FEJEB ONG</span>
+    </div>
+
+    <!-- MENU DESKTOP -->
+    <nav class="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="a propos.html">À propos</a>
+      <a href="actions.html">Actions</a>
+      <a href="impact.html">Impact</a>
+      <a href="membres.html">Équipe</a>
+      <a href="actualites.html">Actualités</a>
+      <a href="don.html">Don</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <!-- BOUTON MENU MOBILE -->
+    <div class="burger" id="burger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <!-- MENU MOBILE -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Accueil</a>
+    <a href="a propos.html">À propos</a>
+    <a href="actions.html">Actions</a>
+    <a href="#">Don</a>
+    <a href="#">Contact</a>
+  </div>
+</header>
+
+
+<section class="hero">
+  <div>
+    <h1>Femmes, Enfants et Jeunes Épanouis du Bénin</h1>
+    <p>Une jeunesse consciente, engagée et actrice du changement.</p>
+  </div>
+</section>
+
+<main>
+
+  <section class="section-card">
+  <h2>🌍 FEJEB — Femmes, Enfants et Jeunes Épanouis du Bénin</h2>
+
+  <p>
+    <strong>FEJEB</strong> (Femmes, Enfants et Jeunes Épanouis du Bénin) est une organisation
+    engagée dans la promotion du développement humain, social et citoyen,
+    avec un accent particulier sur les femmes, les enfants et les jeunes.
+  </p>
+
+  <p>
+    L’organisation est née d’un constat clair :
+    au Bénin, une grande partie de la population, notamment la jeunesse,
+    dispose d’un potentiel considérable mais fait face à des obstacles structurels
+    limitant son épanouissement et sa participation active au développement.
+  </p>
+
+  <p>
+    FEJEB s’inscrit comme une réponse concrète à ces défis,
+    en proposant des actions de terrain, des cadres d’accompagnement
+    et des initiatives adaptées aux réalités locales.
+  </p>
+</section>
+
+<section class="section-card">
+  <h2>🎯 Notre raison d’être</h2>
+
+  <p>
+    La jeunesse représente une force stratégique pour le développement du Bénin.
+    Pourtant, de nombreux jeunes restent confrontés à :
+  </p>
+
+  <ul>
+    <li>le manque d’opportunités de formation pratique,</li>
+    <li>le chômage et le sous-emploi,</li>
+    <li>l’absence d’encadrement et de mentorat,</li>
+    <li>la marginalisation dans les processus de décision.</li>
+  </ul>
+
+  <p>
+    <strong>FEJEB existe pour contribuer à inverser cette tendance</strong>,
+    en favorisant l’autonomisation, la responsabilisation
+    et l’engagement citoyen des femmes, des enfants et des jeunes.
+  </p>
+</section>
+
+<section class="section-card">
+  <h2>🛠️ Notre mission</h2>
+
+  <p>
+    La mission de FEJEB est de <strong>former, sensibiliser, accompagner et représenter</strong>
+    les femmes, les enfants et les jeunes afin de renforcer leurs capacités
+    et leur participation active au développement durable.
+  </p>
+
+  <h3>Nos actions s’articulent autour de plusieurs axes :</h3>
+
+  <ul>
+    <li>renforcement des capacités et formations pratiques,</li>
+    <li>sensibilisation à la citoyenneté, au leadership et à la responsabilité sociale,</li>
+    <li>accompagnement des jeunes porteurs de projets,</li>
+    <li>promotion de l’engagement communautaire et solidaire.</li>
+  </ul>
+</section>
+
+<section class="section-card">
+  <h2>🏗️ Notre cadre organisationnel</h2>
+
+  <p>
+    FEJEB est structurée autour d’une organisation interne
+    fondée sur la collaboration, la participation et la responsabilité.
+  </p>
+
+  <p>
+    L’organisation fonctionne avec :
+  </p>
+
+  <ul>
+    <li>une coordination engagée,</li>
+    <li>des membres actifs et bénévoles,</li>
+    <li>des partenaires communautaires et institutionnels.</li>
+  </ul>
+
+  <p>
+    Cette structure permet à FEJEB de mener des actions cohérentes,
+    adaptées aux besoins des bénéficiaires et aux réalités du terrain.
+  </p>
+</section>
+
+<section class="section-card">
+  <h2>🌱 Nos valeurs fondamentales</h2>
+
+  <ul>
+    <li><strong>Engagement</strong> : agir de manière concrète et durable</li>
+    <li><strong>Responsabilité</strong> : assumer pleinement notre rôle social</li>
+    <li><strong>Solidarité</strong> : promouvoir l’inclusion et l’entraide</li>
+    <li><strong>Transparence</strong> : instaurer la confiance avec nos partenaires et bénéficiaires</li>
+    <li><strong>Leadership</strong> : encourager des leaders responsables et éthiques</li>
+    <li><strong>Citoyenneté</strong> : contribuer activement au développement national</li>
+  </ul>
+</section>
+
+<section class="section-card">
+  <h2>📊 Transparence et engagement</h2>
+
+  <p>
+    FEJEB s’engage à une gestion responsable et transparente
+    de l’ensemble des ressources mises à sa disposition.
+  </p>
+
+  <p>
+    Chaque action menée vise un impact réel, mesurable et durable,
+    au bénéfice direct des communautés accompagnées.
+  </p>
+</section>
+
+<section class="section-card">
+  <h2>🚀 Notre vision</h2>
+
+  <p>
+    FEJEB ambitionne de contribuer à l’émergence
+    d’une société béninoise inclusive,
+    où les femmes, les enfants et les jeunes
+    sont autonomes, formés, responsables
+    et pleinement acteurs du développement.
+  </p>
+</section>
+
+</main>
+
+<footer>
+  <p>© 2026 FEJEB ONG — Tous droits réservés</p>
+</footer>
+
+
+<script>
+  const burger = document.getElementById("burger");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  burger.addEventListener("click", () => {
+    mobileMenu.classList.toggle("active");
+  });
+
+  document.querySelectorAll(".mobile-menu a").forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.remove("active");
+    });
+  });
+</script>
+
+
+
+</body>
+</html>

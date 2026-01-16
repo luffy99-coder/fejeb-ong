@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<!-- =========================
+     SEO ULTRA PRO ONG DON
+========================= -->
+<title>Faire un don – Soutenir les femmes, enfants et jeunes | FEJEB ONG Bénin & International</title>
+<meta name="description" content="Faites un don sécurisé à FEJEB ONG et soutenez des actions humanitaires en faveur des femmes, enfants et jeunes au Bénin et à l’international. Chaque don a un impact durable.">
+
+<meta name="robots" content="index, follow">
+<meta name="author" content="FEJEB ONG">
+<meta name="language" content="fr">
+<meta name="distribution" content="global">
+<meta name="revisit-after" content="7 days">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Faire un don – Soutenez FEJEB ONG">
+<meta property="og:description" content="Votre don soutient des projets humanitaires concrets pour les femmes, enfants et jeunes vulnérables.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fejeb-ong.org/don">
+<meta property="og:image" content="https://fejeb-ong.org/assets/og-don.jpg">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Faire un don – FEJEB ONG">
+<meta name="twitter:description" content="Soutenez une ONG humanitaire engagée pour un impact social durable.">
+<meta name="twitter:image" content="https://fejeb-ong.org/assets/og-don.jpg">
+
+<!-- Schema.org DonateAction -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DonateAction",
+  "name": "Faire un don à FEJEB ONG",
+  "description": "Don sécurisé pour soutenir les actions humanitaires de FEJEB ONG au Bénin et à l’international",
+  "target": {
+    "@type": "EntryPoint",
+    "urlTemplate": "https://fejebong.org/don",
+    "actionPlatform": [
+      "http://schema.org/DesktopWebPlatform",
+      "http://schema.org/MobileWebPlatform"
+    ]
+  }
+}
+</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="icon" href="favicon.png">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<style>
+:root{
+  --vert:#1b7f3a;
+  --jaune:#f5c400;
+  --rouge:#c62828;
+  --gris:#f4f6f8;
+  --info-bg:#0057ff;
+}
+
+body{
+  margin:0;
+  font-family:'Segoe UI',sans-serif;
+
+  background:linear-gradient(
+    135deg,
+    #003b8f,
+    #0057ff,
+    #00a3ff
+  );
+}
+
+
+.container{
+  max-width:1400px;
+  margin:auto;
+  padding:30px 15px;
+  position:relative;
+  z-index:2;
+
+}
+
+.columns{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:30px;
+}
+
+.section-title{
+  background:linear-gradient(90deg,var(--vert),var(--jaune),var(--rouge));
+  color:#fff;
+  padding:16px;
+  font-weight:700;
+  text-align:center;
+}
+
+.block{
+  background:#fff;
+  padding:25px;
+  box-shadow:0 15px 40px rgba(0,0,0,.08);
+}
+
+.info-bottom{
+  margin-top:25px;
+  font-size:13px;
+  line-height:1.6;
+  background:linear-gradient(
+  90deg,
+  rgba(0,87,255,0.9),
+  rgba(27,127,58,0.9)
+);
+  box-shadow:0 8px 20px rgba(0,0,0,0.15);
+  color:#fff;
+  padding:15px 16px;
+  border-radius:6px;
+}
+
+/* DON */
+.don-type{display:flex;gap:10px;margin-bottom:20px;}
+.don-type button{
+  flex:1;padding:12px;border:2px solid var(--vert);
+  background:#fff;font-weight:700;cursor:pointer;
+}
+.don-type button.active{background:var(--vert);color:#fff;}
+
+.montants{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+.montant{
+  border:2px solid var(--vert);
+  padding:12px;text-align:center;font-weight:700;cursor:pointer;
+}
+.montant.active{background:var(--vert);color:#fff;}
+
+.montant-libre input{width:100%;margin-top:15px;padding:14px;}
+
+/* FORM */
+.form-grid{display:grid;gap:12px;}
+input,select{
+  padding:14px;font-size:14px;width:100%;
+}
+
+/* PAIEMENT */
+.paiement{display:flex;flex-direction:column;gap:20px;}
+.paiement div{
+  border:2px solid #ddd;
+  padding:20px;
+  text-align:center;
+  cursor:pointer;
+}
+.paiement div.active{
+  border:2px solid var(--vert);
+}
+.paiement i{font-size:36px;}
+
+.valider{
+  margin-top:25px;padding:18px;
+  background:var(--rouge);color:#fff;
+  border:none;font-size:18px;font-weight:700;cursor:pointer;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .columns{grid-template-columns:1fr;}
+}
+
+/* =========================
+   HEADER ONG TRANSPARENT
+========================= */
+.ong-header{
+  background:url("header-bg.jpg") center/cover no-repeat;
+}
+
+.ong-header-overlay{
+  background:rgba(40, 20, 90, 0.75); /* violet bleu transparent */
+  padding:10px 20px;
+}
+
+.ong-header-content{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  align-items:right;
+  gap:30px;
+  color:#fff;
+}
+
+.ong-logo img{
+  height:70px;
+}
+
+.ong-header-text h1{
+  margin:0;
+  font-size:32px;
+  letter-spacing:1px;
+}
+
+.ong-header-text p{
+  margin-top:10px;
+  font-size:15px;
+  max-width:700px;
+  line-height:1.6;
+}
+
+/* =========================
+   FOOTER ONG TRANSPARENT
+========================= */
+.ong-footer{
+  background:url("footer-bg.jpg") center/cover no-repeat;
+  margin-top:60px;
+}
+
+.ong-footer-overlay{
+  background:rgba(40, 20, 90, 0.85);
+  padding:15px 20px;
+}
+
+.ong-footer-content{
+  max-width:1100px;
+  margin:auto;
+  color:#fff;
+  font-size:13px;
+  line-height:1.6;
+  text-align:right;
+}
+
+.ong-footer-links{
+   margin-top:6px;
+  text-align:right;
+}
+
+.ong-footer-links a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.ong-footer-links span{
+  margin:0 8px;
+  opacity:0.7;
+}
+
+/* MOBILE */
+@media(max-width:700px){
+  .ong-header-content{
+    flex-direction:column;
+    text-align:center;
+  }
+}
+
+@keyframes infoFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.info-bottom{
+  animation: infoFadeUp 0.8s ease-out both;
+}
+
+@keyframes softGlow {
+  0%,100% {
+    box-shadow:0 0 0 rgba(255,255,255,0);
+  }
+  50% {
+    box-shadow:0 0 12px rgba(255,255,255,0.25);
+  }
+}
+
+.info-bottom{
+  animation:
+    infoFadeUp 0.8s ease-out both,
+    softGlow 4s ease-in-out infinite;
+}
+
+*,
+*::before,
+*::after{
+  box-sizing:border-box;
+}
+
+.block{
+  overflow:hidden;
+}
+
+</style>
+</head>
+
+<body>
+
+  <!-- =========================
+     CONTENU SEO INVISIBLE
+========================= -->
+<section style="display:none;">
+<h1>Faire un don humanitaire avec FEJEB ONG</h1>
+<h2>Soutenir les femmes, enfants et jeunes vulnérables</h2>
+<p>
+FEJEB ONG est une organisation humanitaire engagée dans des actions sociales,
+éducatives et solidaires au Bénin et à l’international. Chaque don contribue
+à améliorer durablement les conditions de vie des populations vulnérables.
+</p>
+<h2>Don sécurisé et impact international</h2>
+<p>
+Grâce à un système de paiement sécurisé et transparent, FEJEB ONG garantit
+une gestion rigoureuse des fonds et un suivi des projets humanitaires soutenus.
+</p>
+</section>
+
+<header class="ong-header">
+  <div class="ong-header-overlay">
+    <div class="ong-header-content">
+      <!-- LOGO -->
+      <div class="ong-logo">
+        <!-- Tu mets ton logo ici -->
+        <img src="logo.png" alt="FEJEB ONG">
+      </div>
+
+      <!-- TEXTE -->
+      <div class="ong-header-text">
+        <h1>FEJEB ONG</h1>
+        <p>
+          Femmes, Enfants et Jeunes Épanouis du Bénin —  
+          Agir aujourd’hui pour un avenir plus juste et solidaire.
+        </p>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<div class="container">
+<div class="columns">
+
+<!-- MON DON -->
+<div>
+  <div class="section-title"><h1>Mon don</h1></div>
+  <div class="block">
+    <div class="don-type">
+      <button class="active">Ponctuel</button>
+      <button>Mensuel</button>
+    </div>
+
+    <div class="montants">
+      <div class="montant">5</div>
+      <div class="montant">10</div>
+      <div class="montant">30</div>
+      <div class="montant">50</div>
+      <div class="montant">100</div>
+    </div>
+
+    <div class="montant-libre">
+      <input type="number" id="montantLibre" placeholder="Montant libre €">
+    </div>
+
+    <div class="info-bottom">
+      <h2>✨ Avec votre soutien, vous changez des vies</h2><br>
+      💚 Ce que votre don permet concrètement à FEJEB<br><br>
+      5 000 FCFA
+➡️ Permettent de soutenir une action communautaire de base : sensibilisation citoyenne, information sociale ou appui local aux populations.<br><br>
+10 000 FCFA
+➡️ Contribuent à une activité éducative ou sociale au profit des jeunes, des familles et des communautés vulnérables.<br><br>
+30 000 FCFA
+➡️ Participent à la prise en charge d’une action d’accompagnement communautaire : formation, appui social, encadrement ou orientation.<br><br>
+100 000 FCFA
+➡️ Permettent de financer un programme FEJEB structuré sur plusieurs semaines, au bénéfice, des enfants, des jeunes, des familles et des communautés locales.<br><br>
+      💚 Un don aujourd’hui, un impact durable demain.
+    </div>
+  </div>
+</div>
+
+<!-- COORDONNÉES -->
+<div>
+  <div class="section-title"><h1>Mes coordonnées</h1></div>
+  <div class="block">
+    <div class="form-grid">
+      <input type="email" id="email" placeholder="Email *" required>
+      <input id="prenom" placeholder="Prénom *" required>
+      <input id="nom" placeholder="Nom *" required>
+
+      <input type="text" id="countrySearch" placeholder="Rechercher un pays…">
+
+      <select id="country" required>
+        <option value="">🌍 Sélectionnez votre pays</option>
+        <option value="AF">🇦🇫 Afghanistan</option>
+<option value="ZA">🇿🇦 Afrique du Sud</option>
+<option value="AL">🇦🇱 Albanie</option>
+<option value="DZ">🇩🇿 Algérie</option>
+<option value="DE">🇩🇪 Allemagne</option>
+<option value="AD">🇦🇩 Andorre</option>
+<option value="AO">🇦🇴 Angola</option>
+<option value="AG">🇦🇬 Antigua-et-Barbuda</option>
+<option value="SA">🇸🇦 Arabie saoudite</option>
+<option value="AR">🇦🇷 Argentine</option>
+<option value="AM">🇦🇲 Arménie</option>
+<option value="AU">🇦🇺 Australie</option>
+<option value="AT">🇦🇹 Autriche</option>
+<option value="AZ">🇦🇿 Azerbaïdjan</option>
+<option value="BS">🇧🇸 Bahamas</option>
+<option value="BH">🇧🇭 Bahreïn</option>
+<option value="BD">🇧🇩 Bangladesh</option>
+<option value="BB">🇧🇧 Barbade</option>
+<option value="BE">🇧🇪 Belgique</option>
+<option value="BZ">🇧🇿 Belize</option>
+<option value="BJ">🇧🇯 Bénin</option>
+<option value="BT">🇧🇹 Bhoutan</option>
+<option value="BY">🇧🇾 Biélorussie</option>
+<option value="MM">🇲🇲 Birmanie</option>
+<option value="BO">🇧🇴 Bolivie</option>
+<option value="BA">🇧🇦 Bosnie-Herzégovine</option>
+<option value="BW">🇧🇼 Botswana</option>
+<option value="BR">🇧🇷 Brésil</option>
+<option value="BN">🇧🇳 Brunei</option>
+<option value="BG">🇧🇬 Bulgarie</option>
+<option value="BF">🇧🇫 Burkina Faso</option>
+<option value="BI">🇧🇮 Burundi</option>
+<option value="KH">🇰🇭 Cambodge</option>
+<option value="CM">🇨🇲 Cameroun</option>
+<option value="CA">🇨🇦 Canada</option>
+<option value="CV">🇨🇻 Cap-Vert</option>
+<option value="CL">🇨🇱 Chili</option>
+<option value="CN">🇨🇳 Chine</option>
+<option value="CY">🇨🇾 Chypre</option>
+<option value="CO">🇨🇴 Colombie</option>
+<option value="KM">🇰🇲 Comores</option>
+<option value="CG">🇨🇬 Congo</option>
+<option value="CD">🇨🇩 Congo (RDC)</option>
+<option value="KP">🇰🇵 Corée du Nord</option>
+<option value="KR">🇰🇷 Corée du Sud</option>
+<option value="CR">🇨🇷 Costa Rica</option>
+<option value="CI">🇨🇮 Côte d’Ivoire</option>
+<option value="HR">🇭🇷 Croatie</option>
+<option value="CU">🇨🇺 Cuba</option>
+<option value="DK">🇩🇰 Danemark</option>
+<option value="DJ">🇩🇯 Djibouti</option>
+<option value="DM">🇩🇲 Dominique</option>
+<option value="EG">🇪🇬 Égypte</option>
+<option value="AE">🇦🇪 Émirats arabes unis</option>
+<option value="EC">🇪🇨 Équateur</option>
+<option value="ER">🇪🇷 Érythrée</option>
+<option value="ES">🇪🇸 Espagne</option>
+<option value="EE">🇪🇪 Estonie</option>
+<option value="US">🇺🇸 États-Unis</option>
+<option value="ET">🇪🇹 Éthiopie</option>
+<option value="FJ">🇫🇯 Fidji</option>
+<option value="FI">🇫🇮 Finlande</option>
+<option value="FR">🇫🇷 France</option>
+<option value="GA">🇬🇦 Gabon</option>
+<option value="GM">🇬🇲 Gambie</option>
+<option value="GE">🇬🇪 Géorgie</option>
+<option value="GH">🇬🇭 Ghana</option>
+<option value="GR">🇬🇷 Grèce</option>
+<option value="GD">🇬🇩 Grenade</option>
+<option value="GT">🇬🇹 Guatemala</option>
+<option value="GN">🇬🇳 Guinée</option>
+<option value="GW">🇬🇼 Guinée-Bissau</option>
+<option value="GQ">🇬🇶 Guinée équatoriale</option>
+<option value="GY">🇬🇾 Guyana</option>
+<option value="HT">🇭🇹 Haïti</option>
+<option value="HN">🇭🇳 Honduras</option>
+<option value="HU">🇭🇺 Hongrie</option>
+<option value="IN">🇮🇳 Inde</option>
+<option value="ID">🇮🇩 Indonésie</option>
+<option value="IQ">🇮🇶 Irak</option>
+<option value="IR">🇮🇷 Iran</option>
+<option value="IE">🇮🇪 Irlande</option>
+<option value="IS">🇮🇸 Islande</option>
+<option value="IL">🇮🇱 Israël</option>
+<option value="IT">🇮🇹 Italie</option>
+<option value="JM">🇯🇲 Jamaïque</option>
+<option value="JP">🇯🇵 Japon</option>
+<option value="JO">🇯🇴 Jordanie</option>
+<option value="KZ">🇰🇿 Kazakhstan</option>
+<option value="KE">🇰🇪 Kenya</option>
+<option value="KI">🇰🇮 Kiribati</option>
+<option value="KW">🇰🇼 Koweït</option>
+<option value="LA">🇱🇦 Laos</option>
+<option value="LS">🇱🇸 Lesotho</option>
+<option value="LV">🇱🇻 Lettonie</option>
+<option value="LB">🇱🇧 Liban</option>
+<option value="LR">🇱🇷 Libéria</option>
+<option value="LY">🇱🇾 Libye</option>
+<option value="LI">🇱🇮 Liechtenstein</option>
+<option value="LT">🇱🇹 Lituanie</option>
+<option value="LU">🇱🇺 Luxembourg</option>
+<option value="MK">🇲🇰 Macédoine du Nord</option>
+<option value="MG">🇲🇬 Madagascar</option>
+<option value="MW">🇲🇼 Malawi</option>
+<option value="MY">🇲🇾 Malaisie</option>
+<option value="MV">🇲🇻 Maldives</option>
+<option value="ML">🇲🇱 Mali</option>
+<option value="MT">🇲🇹 Malte</option>
+<option value="MA">🇲🇦 Maroc</option>
+<option value="MH">🇲🇭 Marshall</option>
+<option value="MU">🇲🇺 Maurice</option>
+<option value="MR">🇲🇷 Mauritanie</option>
+<option value="MX">🇲🇽 Mexique</option>
+<option value="FM">🇫🇲 Micronésie</option>
+<option value="MD">🇲🇩 Moldavie</option>
+<option value="MC">🇲🇨 Monaco</option>
+<option value="MN">🇲🇳 Mongolie</option>
+<option value="ME">🇲🇪 Monténégro</option>
+<option value="MZ">🇲🇿 Mozambique</option>
+<option value="NA">🇳🇦 Namibie</option>
+<option value="NP">🇳🇵 Népal</option>
+<option value="NI">🇳🇮 Nicaragua</option>
+<option value="NE">🇳🇪 Niger</option>
+<option value="NG">🇳🇬 Nigeria</option>
+<option value="NO">🇳🇴 Norvège</option>
+<option value="NZ">🇳🇿 Nouvelle-Zélande</option>
+<option value="OM">🇴🇲 Oman</option>
+<option value="UG">🇺🇬 Ouganda</option>
+<option value="UZ">🇺🇿 Ouzbékistan</option>
+<option value="PK">🇵🇰 Pakistan</option>
+<option value="PA">🇵🇦 Panama</option>
+<option value="PG">🇵🇬 Papouasie-Nouvelle-Guinée</option>
+<option value="PY">🇵🇾 Paraguay</option>
+<option value="NL">🇳🇱 Pays-Bas</option>
+<option value="PE">🇵🇪 Pérou</option>
+<option value="PH">🇵🇭 Philippines</option>
+<option value="PL">🇵🇱 Pologne</option>
+<option value="PT">🇵🇹 Portugal</option>
+<option value="QA">🇶🇦 Qatar</option>
+<option value="RO">🇷🇴 Roumanie</option>
+<option value="GB">🇬🇧 Royaume-Uni</option>
+<option value="RU">🇷🇺 Russie</option>
+<option value="RW">🇷🇼 Rwanda</option>
+<option value="LC">🇱🇨 Sainte-Lucie</option>
+<option value="SM">🇸🇲 Saint-Marin</option>
+<option value="SN">🇸🇳 Sénégal</option>
+<option value="RS">🇷🇸 Serbie</option>
+<option value="SC">🇸🇨 Seychelles</option>
+<option value="SL">🇸🇱 Sierra Leone</option>
+<option value="SG">🇸🇬 Singapour</option>
+<option value="SK">🇸🇰 Slovaquie</option>
+<option value="SI">🇸🇮 Slovénie</option>
+<option value="SO">🇸🇴 Somalie</option>
+<option value="SD">🇸🇩 Soudan</option>
+<option value="SS">🇸🇸 Soudan du Sud</option>
+<option value="LK">🇱🇰 Sri Lanka</option>
+<option value="SE">🇸🇪 Suède</option>
+<option value="CH">🇨🇭 Suisse</option>
+<option value="SR">🇸🇷 Suriname</option>
+<option value="SY">🇸🇾 Syrie</option>
+<option value="TJ">🇹🇯 Tadjikistan</option>
+<option value="TZ">🇹🇿 Tanzanie</option>
+<option value="TD">🇹🇩 Tchad</option>
+<option value="CZ">🇨🇿 Tchéquie</option>
+<option value="TH">🇹🇭 Thaïlande</option>
+<option value="TL">🇹🇱 Timor oriental</option>
+<option value="TG">🇹🇬 Togo</option>
+<option value="TO">🇹🇴 Tonga</option>
+<option value="TT">🇹🇹 Trinité-et-Tobago</option>
+<option value="TN">🇹🇳 Tunisie</option>
+<option value="TR">🇹🇷 Turquie</option>
+<option value="TM">🇹🇲 Turkménistan</option>
+<option value="UA">🇺🇦 Ukraine</option>
+<option value="UY">🇺🇾 Uruguay</option>
+<option value="VU">🇻🇺 Vanuatu</option>
+<option value="VA">🇻🇦 Vatican</option>
+<option value="VE">🇻🇪 Venezuela</option>
+<option value="VN">🇻🇳 Viêt Nam</option>
+<option value="YE">🇾🇪 Yémen</option>
+<option value="ZM">🇿🇲 Zambie</option>
+<option value="ZW">🇿🇼 Zimbabwe</option>
+
+      </select>
+    </div>
+
+    <div class="info-bottom">
+      <h2>🔒 Données sécurisées et confidentielles.<br></h2>
+      Les informations recueillies sur ce formulaire sont destinées <b>exclusivement à la FEJEB</b>.
+Elles sont indispensables pour le <b>traitement et le suivi de votre don</b>, la gestion de votre contribution, ainsi que pour vous <b>tenir informé(e) des actions, projets et activités menés par la FEJEB.</b><br>
+
+La FEJEB s’engage à utiliser vos données dans le strict respect de la confidentialité et à <b>ne jamais les céder à des tiers</b> sans votre consentement.<br>
+
+Conformément aux dispositions légales en vigueur relatives à la protection des données à caractère personnel, vous disposez d’un <b>droit d’accès, de rectification et d’opposition</b> concernant les informations vous concernant.<br>
+
+Vous pouvez exercer ces droits à tout moment en adressant votre demande par courrier électronique ou par message écrit au service en charge des relations avec les donateurs et partenaires de la FEJEB.<br>
+<h2><b>📧 Contact donateurs
+ <a href="mailto:fejeb.ong@gmail.com" class="contact-link">fejeb.ong@gmail.com</a></b></h2>
+    </div>
+  </div>
+</div>
+
+<!-- RÈGLEMENT -->
+<div>
+  <div class="section-title"><h1>Mon règlement</h1></div>
+  <div class="block">
+    <div class="paiement">
+      <div onclick="choisirPaiement('paypal', event)">
+        <i class="fa-brands fa-cc-paypal"></i>
+        <p>PayPal</p>
+      </div>
+      <div onclick="choisirPaiement('fedapay', event)">
+        <i class="fa-solid fa-money-bill-wave"></i>
+        <p>Fedapay</p>
+      </div>
+    </div>
+
+    <button class="valider" onclick="verifier()">JE VALIDE</button>
+
+    <div class="info-bottom">
+      <h2>🔐 Paiement 100 % sécurisé.<br></h2>
+
+      <b>🤝 Un impact réel, au-delà des individus</b><br>
+Les dons à FEJEB servent à :<br>
+
+    <li>renforcer la cohésion sociale</li>
+
+    <li>soutenir les initiatives communautaires</li>
+
+    <li>accompagner les populations vulnérables</li>
+
+    <li>promouvoir l’engagement citoyen et solidaire</li><br>
+
+👉 Soutenir FEJEB, c’est investir dans le développement humain et communautaire.
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+
+<footer class="ong-footer">
+  <div class="ong-footer-overlay">
+    <div class="ong-footer-content">
+      <p>
+        FEJEB ONG œuvre pour l’épanouissement des femmes, des enfants
+        et des jeunes à travers des actions sociales, éducatives et
+        humanitaires au Bénin.
+      </p>
+
+      <div class="ong-footer-links">
+        <a href="index.html">Acceuil</a>
+        <span>|</span>
+        <a href="a propos.html">A propos</a>
+        <span>|</span>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- FEDAPAY -->
+<script src="https://cdn.fedapay.com/checkout.js"></script>
+
+<script>
+let donType = "ponctuel";
+let montantDon = 0;
+let paiement = "";
+
+function choisirPaiement(type, event){
+  paiement = type;
+  document.querySelectorAll('.paiement div').forEach(d=>d.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+}
+
+document.querySelectorAll('.don-type button').forEach(btn=>{
+  btn.onclick=()=>{
+    document.querySelectorAll('.don-type button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    donType = btn.innerText.toLowerCase();
+  }
+});
+
+document.querySelectorAll('.montant').forEach(m=>{
+  m.onclick=()=>{
+    document.querySelectorAll('.montant').forEach(x=>x.classList.remove('active'));
+    m.classList.add('active');
+    montantDon = parseFloat(m.innerText);
+    document.getElementById("montantLibre").value="";
+  }
+});
+
+document.getElementById("montantLibre").addEventListener("input",e=>{
+  document.querySelectorAll('.montant').forEach(x=>x.classList.remove('active'));
+  montantDon = parseFloat(e.target.value);
+});
+
+function verifier(){
+  let email = document.getElementById("email").value.trim();
+  let prenom = document.getElementById("prenom").value.trim();
+  let nom = document.getElementById("nom").value.trim();
+  let country = document.getElementById("country").value;
+
+  if(!montantDon || montantDon<=0){
+    alert("Veuillez choisir un montant.");
+    return;
+  }
+  if(!email || !prenom || !nom || !country){
+    alert("Veuillez remplir tous les champs obligatoires.");
+    return;
+  }
+  if(!paiement){
+    alert("Veuillez choisir un moyen de paiement.");
+    return;
+  }
+
+  if(paiement==="paypal"){
+    window.location.href =
+      "https://www.paypal.com/donate/?business=TON_EMAIL_PAYPAL"
+      + "&amount=" + montantDon
+      + "&currency_code=EUR"
+      + "&item_name=Don+" + donType + "+FEJEB+ONG";
+  }
+
+  if(paiement==="fedapay"){
+    FedaPay.init({
+      public_key: "pk_live_JVKrYdAmUDpIrrJJP6aQ0UxR",
+      transaction: {
+        amount: montantDon,
+        description: "Don " + donType + " - FEJEB ONG"
+      },
+      customer: {
+        email: email,
+        firstname: prenom,
+        lastname: nom,
+        country: country
+      }
+    }).open();
+  }
+}
+</script>
+
+<section style="display:none;">
+<h1>Faire un don pour soutenir une organisation humanitaire internationale</h1>
+
+<h2>Pourquoi faire un don à une ONG humanitaire ?</h2>
+<p>
+Faire un don permet de financer des actions humanitaires durables dans les domaines de la santé,
+de l’éducation, de la protection sociale et de l’aide d’urgence. Chaque contribution soutient
+des projets à fort impact à l’échelle internationale.
+</p>
+
+<h2>Un don sécurisé et transparent</h2>
+<p>
+Notre plateforme de don garantit un paiement sécurisé, une gestion transparente des fonds
+et un suivi rigoureux des projets soutenus à travers plusieurs pays.
+</p>
+
+<h2>Agir ensemble pour un impact mondial</h2>
+<p>
+En soutenant notre ONG internationale, vous contribuez à améliorer les conditions de vie
+des populations vulnérables et à renforcer la solidarité mondiale.
+</p>
+</section>
+
+</body>
+</html>

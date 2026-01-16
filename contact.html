@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact | FEJEB ONG</title>
+
+  <meta name="description" content="Contactez FEJEB ONG pour partenariats, dons, bénévolat ou informations. Ensemble, agissons pour les femmes, les enfants et les jeunes du Bénin.">
+  <meta name="keywords" content="Contact FEJEB ONG, ONG Bénin, Partenariat ONG, Dons, Bénévolat">
+  <meta name="author" content="FEJEB ONG">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <style>
+    :root{
+      --green:#008751;
+      --yellow:#FCD116;
+      --red:#E8112D;
+      --dark:#0e1b16;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",Arial,sans-serif}
+    body{background:linear-gradient(
+    135deg,
+    #003b8f,
+    #0057ff,
+    #00a3ff
+  );}
+
+    header{
+      position:fixed;top:0;width:100%;
+      background:rgba(255,255,255,0.95);
+      box-shadow:0 2px 10px rgba(0,0,0,0.05);
+      z-index:1000;
+    }
+
+    .nav{
+      max-width:1200px;margin:auto;
+      display:flex;justify-content:space-between;align-items:center;
+      padding:15px 20px;
+      font-weight:600;
+      font-size:17px;
+    }
+
+    .logo{display:flex;align-items:center;gap:10px}
+    .logo img{height:45px}
+    .logo span{font-weight:700;color:var(--green);font-size:18px}
+
+    nav a{margin:0 10px;text-decoration:none;color:#333;font-weight:500}
+    nav a:hover{color:var(--green)}
+
+    nav a{
+  position:relative;
+  margin:0 12px;
+  text-decoration:none;
+  color:#333;
+  font-weight:500;
+  padding-bottom:4px;
+}
+
+nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:0%;
+  height:2px;
+  background:var(--green);
+  transition:width .3s ease;
+}
+
+nav a:hover::after{
+  width:100%;
+}
+
+nav a:hover{
+  color:var(--green);
+}
+
+
+    .hero{
+      height:60vh;
+      display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url('fond.jpg') center/cover no-repeat;
+      text-align:center;color:white;padding:20px;
+    }
+
+    .hero h1{font-size:46px;max-width:900px;margin:auto}
+    .hero p{margin-top:20px;font-size:20px;max-width:800px;margin:auto}
+
+    main{
+      max-width:1200px;
+      margin:auto;
+      padding:100px 20px 80px;
+      display:grid;
+      gap:60px;
+    }
+
+    .section-card{
+      background:#fff;
+      border-radius:18px;
+      padding:50px;
+      box-shadow:0 12px 35px rgba(0,0,0,.08);
+    }
+
+    .section-card h2{
+      color:var(--green);
+      margin-bottom:25px;
+      font-size:32px;
+      text-align:center;
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:40px;
+    }
+
+    .contact-info div{
+      margin-bottom:25px;
+      background:#f3f7f5;
+      padding:25px;
+      border-radius:14px;
+    }
+
+    .contact-info strong{
+      display:block;
+      color:var(--green);
+      margin-bottom:8px;
+      font-size:18px;
+    }
+
+    form label{
+      font-weight:600;
+      display:block;
+      margin-bottom:6px;
+    }
+
+    form input, form textarea{
+      width:100%;
+      padding:14px;
+      border-radius:10px;
+      border:1px solid #ccc;
+      margin-bottom:20px;
+      font-size:15px;
+    }
+
+    form textarea{min-height:140px;resize:vertical}
+
+    form select{
+  width:100%;
+  padding:14px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  margin-bottom:20px;
+  font-size:15px;
+  background:white;
+}
+
+
+    form button{
+      background:var(--green);
+      color:white;
+      border:none;
+      padding:14px 30px;
+      font-size:16px;
+      border-radius:30px;
+      cursor:pointer;
+      font-weight:600;
+    }
+
+    form button:hover{opacity:.9}
+
+    .cta{
+      text-align:center;
+    }
+
+    .cta a{
+      display:inline-block;
+      margin-top:20px;
+      background:var(--yellow);
+      padding:14px 30px;
+      border-radius:30px;
+      font-weight:600;
+      color:#000;
+      text-decoration:none;
+    }
+
+    footer{
+      background:var(--dark);
+      color:white;
+      padding:50px 20px;
+      text-align:center;
+    }
+
+    footer p{opacity:.85}
+
+    @media(max-width:900px){
+      .contact-grid{grid-template-columns:1fr}
+      .hero h1{font-size:36px}
+    }
+
+    .contact-link{
+  color:#0A6CFF;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.contact-link:hover{
+  text-decoration:underline;
+}
+
+.socials{
+  display:flex;
+  gap:20px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:30px;
+}
+
+.social{
+  padding:14px 28px;
+  border-radius:30px;
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+  transition:transform .2s, opacity .2s;
+}
+
+.social:hover{
+  transform:translateY(-3px);
+  opacity:.9;
+}
+
+.whatsapp{background:#25D366}
+.facebook{background:#1877F2}
+.messenger{background:#E8112D}
+
+
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">
+      <img src="logo.png" alt="Logo FEJEB">
+      <span>FEJEB ONG</span>
+    </div>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="a propos.html">À propos</a>
+      <a href="actions.html">Actions</a>
+      <a href="impact.html">Impact</a>
+      <a href="membres.html">Équipe</a>
+      <a href="actualites.html">Actualités</a>
+      <a href="don.html">Don</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div>
+    <h1>Contactez FEJEB ONG</h1>
+  <p> Écrivez-nous grâce à ce formulaire, et nous orienterons votre message vers le meilleur collaborateur en fonction de votre demande.
+    </p>
+
+    <p>
+      Une question, un partenariat, un don ou un engagement bénévole ?
+      Notre équipe est à votre écoute.
+      Les champs marqués d'une étoile (*) sont obligatoires, merci de veiller à les remplir.
+    </p>
+  </div>
+</section>
+
+<main>
+
+  <section class="section-card">
+    <h2>📩 Entrons en contact</h2>
+
+    <div class="contact-grid">
+
+      <div class="contact-info">
+        <div>
+          <strong>📍 Localisation</strong>
+          <a href="https://www.google.com/maps?q=Cotonou,+Benin" target="_blank" class="contact-link">
+          Cotonou, Bénin
+        </a>
+        </div>
+
+        <div>
+          <strong>📞 Téléphone / WhatsApp</strong>
+          <a href="tel:+22901 48 48 40 48" class="contact-link">+229 01 48 48 40 48</a>
+
+        </div>
+
+        <div>
+          <strong>✉️ Email</strong>
+          <a href="mailto:fejeb.ong@gmail.com" class="contact-link">fejeb.ong@gmail.com</a>
+
+        </div>
+
+        <div class="socials">
+    <a href="https://wa.me/22999560661?text=Bonjour%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20l%E2%80%99ONG%20FEJEB" target="_blank" class="social whatsapp">
+      WhatsApp
+    </a>
+
+    <a href="https://www.facebook.com/profile.php?id=61574007833322" target="_blank" class="social facebook">
+      Facebook
+    </a>
+
+    <a href="https://www.facebook.com/profile.php?id=61574007833322" target="_blank" class="social messenger">
+      Messenger
+    </a>
+  </div>
+
+        <div>
+          <strong>🤝 Partenariats & collaborations</strong>
+          Institutions, ONG, bailleurs, entreprises et acteurs sociaux
+        </div>
+      </div>
+
+      <form>
+        <label><b>Nom complet *</b></label>
+        <input type="text" placeholder="Votre nom" required>
+
+        <label><b>Email *</b></label>
+        <input type="email" placeholder="Votre email" required>
+
+        <label><b>Numéro de Téléphone</b></label>
+        <input type="email" placeholder="Votre numéro de téléphone" required>
+
+
+        <label><b>Objet de votre message *</b></label>
+<select required>
+  <option value=""> Sélectionnez l'objet de votre message </option>
+  <option>Demande d’information</option>
+  <option>Partenariat / Collaboration</option>
+  <option>Don / Soutien financier</option>
+  <option>Bénévolat / Engagement</option>
+  <option>Projet ou programme</option>
+  <option>Presse / Communication</option>
+  <option>Autre demande</option>
+</select>
+
+
+        <label><b>Message *</b></label>
+        <textarea placeholder="Votre message"></textarea>
+
+        <button type="submit">Envoyer le message</button>
+      </form>
+
+    </div>
+  </section>
+
+  <section class="section-card cta">
+    <h2>🚀 Agissons ensemble</h2>
+    <p>
+      FEJEB croit à la force des collaborations durables.
+      Ensemble, donnons aux femmes, aux enfants et aux jeunes
+      les moyens de bâtir un avenir meilleur.
+    </p>
+    <a href="don.html">Soutenir FEJEB</a>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 FEJEB ONG — Tous droits réservés</p>
+</footer>
+
+</body>
+</html>
