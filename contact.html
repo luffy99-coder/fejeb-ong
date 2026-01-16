@@ -256,6 +256,85 @@ footer p{opacity:.85}
   .contact-grid{grid-template-columns:1fr}
   .hero h1{font-size:36px}
 }
+/* ===============================
+   RESPONSIVE MOBILE IDENTIQUE ACCUEIL
+   =============================== */
+
+@media (max-width: 768px) {
+
+  header{
+    position:fixed;
+  }
+
+  .nav{
+    flex-direction:column;
+    gap:12px;
+  }
+
+  nav{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  nav a{
+    margin:6px 10px;
+    font-size:15px;
+  }
+
+  .hero{
+    height:auto;
+    padding:120px 15px 60px;
+  }
+
+  .hero h1{
+    font-size:30px;
+    line-height:1.25;
+  }
+
+  .hero p{
+    font-size:16px;
+    margin-top:14px;
+  }
+
+  main{
+    padding:40px 15px 60px;
+  }
+
+  .section-card{
+    padding:30px 20px;
+    border-radius:14px;
+  }
+
+  .section-card h2{
+    font-size:24px;
+  }
+
+  .contact-grid{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+
+  .contact-info div{
+    padding:20px;
+  }
+
+  form input,
+  form textarea,
+  form select{
+    font-size:16px;
+  }
+
+  .cta a,
+  form button{
+    width:100%;
+    text-align:center;
+  }
+
+  footer{
+    padding:40px 15px;
+  }
+}
 
 </style>
 </head>
@@ -387,3 +466,4 @@ footer p{opacity:.85}
 
 </body>
 </html>
+
