@@ -10,9 +10,16 @@
 <meta name="author" content="FEJEB ONG">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<meta http-equiv="Cache-Control" content="max-age=31536000">
+
 <link rel="icon" href="favicon.png">
 <link rel="canonical" href="https://fejeb-ong.org/actualites.html">
 
+<!-- PERF -->
+<link rel="preconnect" href="https://docs.google.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- OPEN GRAPH -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Actualités FEJEB ONG">
 <meta property="og:description" content="Actions humanitaires, projets communautaires et impact réel sur le terrain.">
@@ -33,16 +40,23 @@ body{
   color:#222;
   line-height:1.7;
 }
+
+/* HEADER */
 header{
-  position:fixed;top:0;width:100%;
+  position:fixed;
+  top:0;width:100%;
   background:rgba(255,255,255,.96);
   box-shadow:0 2px 10px rgba(0,0,0,.08);
   z-index:1000;
 }
 .nav{
-  max-width:1200px;margin:auto;
-  font-weight:600;font-size:17px;
-  display:flex;justify-content:space-between;align-items:center;
+  max-width:1200px;
+  margin:auto;
+  font-weight:600;
+  font-size:17px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
   padding:15px 20px;
 }
 .logo{display:flex;align-items:center;gap:10px}
@@ -59,20 +73,22 @@ nav a::after{
 nav a:hover::after{width:100%}
 .menu-toggle{display:none;font-size:30px;cursor:pointer}
 
+/* HERO */
 .hero{
   height:70vh;
-  background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),url("fond.jpg") center/cover no-repeat;
+  background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
+  url("fond.jpg") center/cover no-repeat;
   display:flex;align-items:center;justify-content:center;
   text-align:center;color:#fff;padding:20px;
 }
 .hero h1{font-size:48px;margin-bottom:20px}
 .hero p{font-size:20px;max-width:800px;margin:auto}
 
+/* MAIN */
 main{
   max-width:1200px;margin:auto;
   padding:120px 20px 80px;
 }
-
 .news-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -99,30 +115,44 @@ main{
 .btn-lire-plus{
   margin-top:14px;
   background:var(--green);
-  color:#fff;border:none;
+  color:#fff;
+  border:none;
   padding:10px 22px;
   border-radius:30px;
   font-weight:700;
   cursor:pointer;
 }
+
+/* PAGINATION */
 .pagination{margin-top:50px;text-align:center}
 .pagination button{
-  padding:10px 18px;margin:5px;
-  border:none;border-radius:8px;
-  background:var(--green);color:#fff;
-  cursor:pointer;font-weight:600;
+  padding:10px 18px;
+  margin:5px;
+  border:none;
+  border-radius:8px;
+  background:var(--green);
+  color:#fff;
+  cursor:pointer;
+  font-weight:600;
 }
+
+/* FOOTER */
 footer{
   background:linear-gradient(90deg,var(--green),var(--dark));
-  color:#fff;text-align:center;
+  color:#fff;
+  text-align:center;
   padding:50px 20px;
 }
+
+/* RESPONSIVE */
 @media(max-width:900px){
   nav{display:none}
   nav.active{
-    display:flex;flex-direction:column;
+    display:flex;
+    flex-direction:column;
     background:#fff;
-    position:absolute;top:70px;left:0;width:100%;
+    position:absolute;
+    top:70px;left:0;width:100%;
   }
   .menu-toggle{display:block}
   .hero h1{font-size:34px}
@@ -135,7 +165,7 @@ footer{
 <header>
   <div class="nav">
     <div class="logo">
-      <img src="logo.png" alt="FEJEB ONG">
+      <img src="logo.png" alt="FEJEB ONG" loading="lazy">
       <span>FEJEB ONG</span>
     </div>
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
@@ -168,73 +198,70 @@ footer{
   © 2026 FEJEB ONG — Transparence, action et impact durable
 </footer>
 
-<script>
-const SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRh4rQ6mAYpcU5UJM2PCY_u9pq6h6cRTdTnQczQzk35nsyVMiM64wtfrtmM0geDgL16-D5hJgULSKeI/pub?gid=1521425820&single=true&output=csv";
-const PER_PAGE = 6;
-let currentPage = 1;
-let rows = [];
-
-// CSV parser robuste (virgules autorisées)
-function parseCSVLine(line){
-  return line.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/)
-             .map(v => v.replace(/^"|"$/g,"").trim());
-}
+<script defer>
+const SHEET_URL="https://docs.google.com/spreadsheets/d/e/2PACX-1vRh4rQ6mAYpcU5UJM2PCY_u9pq6h6cRTdTnQczQzk35nsyVMiM64wtfrtmM0geDgL16-D5hJgULSKeI/pub?gid=1521425820&single=true&output=csv";
+const PER_PAGE=6;
+let currentPage=1;
+let rows=[];
 
 fetch(SHEET_URL)
-.then(r => r.text())
-.then(csv => {
-  rows = csv.trim().split("\n").slice(1);
-  rows.reverse();
+.then(r=>r.text())
+.then(csv=>{
+  rows=parseCSV(csv).slice(1).reverse();
   render();
 });
 
+function parseCSV(text){
+  const rows=[];
+  let row=[],cur="",q=false;
+  for(let c of text){
+    if(c=='"') q=!q;
+    else if(c==","&&!q){row.push(cur);cur="";}
+    else if(c=="\n"&&!q){row.push(cur);rows.push(row);row=[];cur="";}
+    else cur+=c;
+  }
+  row.push(cur);rows.push(row);
+  return rows;
+}
+
 function render(){
-  const grid = document.getElementById("newsGrid");
-  grid.innerHTML = "";
-
-  const start = (currentPage - 1) * PER_PAGE;
-  const pageRows = rows.slice(start, start + PER_PAGE);
-
-  pageRows.forEach(row => {
-    const c = parseCSVLine(row);
-    if(c.length < 5) return;
-
-    grid.innerHTML += `
-      <article class="news-card">
-        <img src="${c[4]}" alt="${c[1]}" loading="lazy">
-        <div class="news-content">
-          <div class="news-meta">${c[0]}</div>
-          <h3>${c[1]}</h3>
-          <p>${c[2]}</p>
-          <div class="more-text"><p>${c[3]}</p></div>
-          <button class="btn-lire-plus">Lire plus</button>
-        </div>
-      </article>
-    `;
+  const grid=document.getElementById("newsGrid");
+  grid.innerHTML="";
+  const start=(currentPage-1)*PER_PAGE;
+  rows.slice(start,start+PER_PAGE).forEach(c=>{
+    grid.innerHTML+=`
+    <article class="news-card">
+      <img src="${c[4]}" alt="${c[1]}" loading="lazy">
+      <div class="news-content">
+        <div class="news-meta">${c[0]}</div>
+        <h3>${c[1]}</h3>
+        <p>${c[2]}</p>
+        <div class="more-text"><p>${c[3]}</p></div>
+        <button class="btn-lire-plus">Lire plus</button>
+      </div>
+    </article>`;
   });
-
-  document.querySelectorAll(".btn-lire-plus").forEach(btn=>{
-    btn.onclick = ()=>{
-      const more = btn.previousElementSibling;
-      const open = more.style.display === "block";
-      more.style.display = open ? "none" : "block";
-      btn.textContent = open ? "Lire plus" : "Lire moins";
+  document.querySelectorAll(".btn-lire-plus").forEach(b=>{
+    b.onclick=()=>{
+      const m=b.previousElementSibling;
+      const o=m.style.display==="block";
+      m.style.display=o?"none":"block";
+      b.textContent=o?"Lire plus":"Lire moins";
     }
   });
-
   renderPagination();
 }
 
 function renderPagination(){
-  const p = document.getElementById("pagination");
-  p.innerHTML = "";
-  const total = Math.ceil(rows.length / PER_PAGE);
+  const p=document.getElementById("pagination");
+  p.innerHTML="";
+  const total=Math.ceil(rows.length/PER_PAGE);
   for(let i=1;i<=total;i++){
-    p.innerHTML += `<button onclick="goPage(${i})">${i}</button>`;
+    p.innerHTML+=`<button onclick="goPage(${i})">${i}</button>`;
   }
 }
-function goPage(p){ currentPage = p; render(); }
-function toggleMenu(){ document.getElementById("menu").classList.toggle("active"); }
+function goPage(p){currentPage=p;render();}
+function toggleMenu(){document.getElementById("menu").classList.toggle("active");}
 </script>
 
 </body>
